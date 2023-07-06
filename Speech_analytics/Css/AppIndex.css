@@ -1,0 +1,117 @@
+﻿
+
+
+@import url(styles.css);
+
+
+.bodybody {
+    margin-top: 1%;
+}
+
+#open__h1 {
+    background-color: #fff;
+}
+
+.row_1 {
+    display: flex;
+    flex-direction: row;
+    max-width: 100%;
+    justify-content: left;
+}
+
+.tex_01 {
+    font-size: 18px;
+    color: var(--lt-color-gray-700);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.tex_02 {
+    font-size: 18px;
+    color: var(--lt-color-gray-500);
+    text-decoration: none;
+    font-weight: lighter;
+    font-style: oblique;
+}
+
+
+.row_2 {
+    display: flex;
+    flex-direction: row;
+    max-width: 100%;
+    margin-top: 0px;
+    justify-content: center;
+}
+
+.p_1 {
+    margin: 15px 0px;
+}
+
+.card {
+    padding: 15px;
+    width: 100%;
+    border: solid 1px var(--lt-color-gray-200);
+}
+
+.card_2_a {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+}
+
+.card-body {
+    border: transparent;
+}
+
+.card-header {
+    justify-content: center;
+    align-items: center;
+    border: transparent;
+    background-color: transparent;
+}
+
+.card_2_b {
+    border-radius: 0px 0px 10px 10px;
+    border: solid 1px #f2f2f2;
+    background-color: #f2f2f2;
+}
+
+.row_3 {
+    display: flex;
+    flex-direction: row;
+    margin: 50px auto;
+    max-width: 100%;
+    width: 100%;
+    padding: 30px;
+    justify-content: center;
+    justify-content: center;
+    background-color: var(--fondo-azul);
+    border-radius: 10px;
+}
+
+@media (min-width: 1200px) {
+    .col-xl-6 {
+        width: 100%;
+    }
+}
+
+.message_1 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.message {
+    display: flex;
+    justify-content: center;
+    margin: 50px auto;
+}
+
+.CssLogo {
+    width: 150px;
+
+
+}
+.CssLogo:hover{
+
+    transform: rotate(360deg);
+    transition: transform .5s;
+}

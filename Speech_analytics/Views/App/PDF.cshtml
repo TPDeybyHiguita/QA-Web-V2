@@ -1,0 +1,233 @@
+﻿@model List<Speech_analytics.Models.PDFALEATORIO>
+
+    @{
+        ViewBag.Title = "PDF";
+    }
+
+
+
+    <!DOCTYPE html>
+
+
+    <html lang="es"
+          class="light-style layout-menu-fixed"
+          dir="ltr"
+          data-theme="theme-default"
+          data-assets-path="../assets/"
+          data-template="vertical-menu-template-free"
+          id="MyPDFView">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+        <title> Aleatoriedad | Analytics</title>
+
+        <meta name="description" content="" />
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="Vistas/multimedia/teleperformance-group.svg">
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+
+        <!-- Icons. Uncomment required icon fonts -->
+        <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
+
+        <!-- Core CSS -->
+        <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
+        <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+        <link rel="stylesheet" href="../assets/css/demo.css" />
+
+        <!-- Vendors CSS -->
+        <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+        <link rel="stylesheet" href="../assets/vendor/libs/apex-charts/apex-charts.css" />
+
+        <link href="~/Css/AppHeader.css" rel="stylesheet" />
+        <link href="~/Css/PDFRAndom.css" rel="stylesheet" />
+        <link href="~/Css/styles.css" rel="stylesheet" />
+
+
+        <!-- Page CSS -->
+        <!-- Helpers -->
+        <script src="html2pdf.bundle.min.js"></script>
+        <script src="../assets/vendor/js/helpers.js"></script>
+
+        <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+        <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+        <script src="../assets/js/config.js"></script>
+
+
+    </head>
+
+    <body id="jsBody">
+
+
+        <div class="row_3">
+            <div class="card mb-4">
+                <div class="CssFooter">
+
+
+                    <tr>
+
+                        <td>Histórico de actividad generada</td>
+                        <td><img class="identidad_logo" src="~/Multime/Mesa de trabajo 18.png" alt="" id="CssImgLogos"></td>
+                        <td><img class="identidad_logo" src="~/Multime/Work.png" alt="" id="CssImgLogos"></td>
+                        <td><img class="identidad_logo2" src="~/Multime/teleperformance-group.svg" alt="" id="CssImgLogos"></td>
+
+                    </tr>
+                </div>
+
+
+                
+
+                <hr class="my-0" />
+
+
+
+                <div class="colum_2">
+
+                    <div id="jspdfPlantilla" class="card">
+                        <div class="alert alert-secondary" role="alert" _msthash="2889679" _msttexthash="1422278">
+                            <div class="colum_a">
+                                @{ 
+                                    int con = 0;
+                                    foreach (var oItem in Model)
+                                    {
+                                        con++;
+                                        if (con == (Model.Count()))
+                                        {
+                                            <h6>Referencia:</h6> <p id="jsCampo1">@oItem.ID_PDF2</p>
+                                            <h6>ID CCMS:</h6> <p id="jsCampo2">@oItem.CCMS_EVALUATOR</p>
+                                            <h6>Evaluador:</h6> <p id="jsCampo3">@oItem.Nombre</p>
+                                            <h6>Cargo:</h6> <p id="jsCampo4">@oItem.Rol</p>
+                                            <h6>Fecha generada:</h6> <p id="jsCampo5">@oItem.CRETE_DATETIME</p>
+                                            <h6>Cliente:</h6> <p id="jsCampo6">@oItem.Nombre_Campaña</p>
+                                        }
+                                    }
+                                }
+
+                            </div>
+
+
+                        </div>
+
+                        <div class="table-responsive text-nowrap">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th _msthash="3649139" _msttexthash="117546">N°</th>
+                                        <th _msthash="3649269" _msttexthash="93639">Cliente</th>
+                                        <th _msthash="3649269" _msttexthash="93639">UCID</th>
+                                        <th _msthash="3649659" _msttexthash="112476">Duración</th>
+                                        <th _msthash="3649659" _msttexthash="112476">Login Agente inicial</th>
+                                        <th _msthash="3649659" _msttexthash="112476">Nombre Agente inicial</th>
+                                        <th _msthash="3649659" _msttexthash="112476">Talk time</th>
+                                        <th _msthash="3649659" _msttexthash="112476">Hold time</th>
+                                        <th _msthash="3649659" _msttexthash="112476">Origen colgada</th>
+                                        <th _msthash="3649659" _msttexthash="112476">Transferida</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody id="jstbodytabla">
+
+
+                                    @{
+                                        int cont = 1;
+                                        foreach (var oItem in Model)
+                                        {                                            
+                                            if (cont < Model.Count())
+                                            {
+                                                <tr>
+                                                    <td>@oItem.POSITION_PDF</td>
+                                                    <td>@oItem.CAMPAÑA</td>
+                                                    <td>@oItem.UCID</td>
+                                                    <td>@oItem.DURACION</td>
+                                                    <td>@oItem.AGENTE_INICIAL</td>
+                                                    <td>@oItem.N_AGENTE_FINAL</td>
+                                                    <td>@oItem.TALK_TIME</td>
+                                                    <td>@oItem.HOLD_TIME</td>
+                                                    <td>@oItem.ORIGEN_COLGADA</td>
+                                                    <td>@oItem.TRANSFERIDA</td>
+                                                </tr>
+                                            }
+                                            cont++;
+                                        }
+                                    }
+
+                                </tbody>
+                                <tfoot class="table-border-bottom-0">
+                                    <tr>
+                                        <th _msthash="3649139" _msttexthash="117546">N°</th>
+                                        <th _msthash="3649269" _msttexthash="93639">Cliente</th>
+                                        <th _msthash="3649269" _msttexthash="93639">UCID</th>
+                                        <th _msthash="3649659" _msttexthash="112476">Duración</th>
+                                        <th _msthash="3649659" _msttexthash="112476">Login Agente inicial</th>
+                                        <th _msthash="3649659" _msttexthash="112476">Nombre Agente inicial</th>
+                                        <th _msthash="3649659" _msttexthash="112476">Talk time</th>
+                                        <th _msthash="3649659" _msttexthash="112476">Hold time</th>
+                                        <th _msthash="3649659" _msttexthash="112476">Origen colgada</th>
+                                        <th _msthash="3649659" _msttexthash="112476">Transferida</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Account -->
+            </div>
+        </div>
+
+
+        <!-- Footer -->
+        <footer class="content-footer footer bg-footer-theme">
+            <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+                La información aquí contenida será enviada por correo electrónico mediante MAQUINA. Si no recibe esta información pude descargar el documento y guardarlo como evidencia. En caso de que se presente errores puede comunicarse al sistemas para generar la atención oportuna.
+            </div>
+            <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+                <a href="http://www.teleperformance.co/" target="_blank">
+                    teleperformance.co |
+                </a>
+                <a href="http://www.linkedin.com/company/teleperformance" target="_blank">
+                    linkedin.com/Teleperformance  | 
+                </a>
+                <a href="http://facebook.com/TeleperformanceCO">
+                    facebook.com/TeleperformanceCO  | 
+                </a>
+                <a href="http://www.instagram.com/Teleperformance_Colombia" target="_blank">
+                    instagram.com/Teleperformance_Colombia
+                </a>
+            </div>
+
+        </footer>
+        <!-- / Footer -->
+        <!-- Core JS -->
+        <!-- build:js assets/vendor/js/core.js -->
+        <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+        <script src="../assets/vendor/libs/popper/popper.js"></script>
+        <script src="../assets/vendor/js/bootstrap.js"></script>
+        <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+        <script src="../assets/vendor/js/menu.js"></script>
+        <!-- endbuild -->
+        <!-- Vendors JS -->
+        <script src="../assets/vendor/libs/apex-charts/apexcharts.js"></script>
+
+        <!-- Main JS -->
+        <script src="../assets/js/main.js"></script>
+
+        <!-- Page JS -->
+        <script src="../assets/js/dashboards-analytics.js"></script>
+
+        <!-- Place this tag in your head or just before your close body tag. -->
+        <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+
+
+
+
+    </body>
+</html>

@@ -1,0 +1,120 @@
+﻿
+@import url('styles.css');
+
+.header_div {
+    position: relative;
+    float: right;
+    height: 50px;
+    width: 90%;
+    background-color: var(--lt-color-gray-100);
+    cursor: default;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    z-index: 3;
+    padding: 4px 16px 4px 4px;
+    border-radius: 0px 0px 15px 15px;
+    margin: 0px auto;
+    box-shadow: 0px 0px 5px 1px #dee3ed;
+    margin-right: 20px;
+    margin-top: 0px;
+}
+
+.identidad_logo {
+    max-width: 200px;
+    min-width: 50px;
+    width: 60px;
+}
+
+.link-menu {
+    color: var(--lt-color-gray-900);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+    .link-menu:hover {
+        border-radius: 0px 0px 15px 15px;
+        background: -webkit-linear-gradient(0deg,#7A2180 16.67%,#E40276 95.31%);
+        color: #fff;
+        font-weight: 700;
+    }
+
+.icono_5 {
+    color: #E40276;
+    font-size: 20px;
+}
+
+.icono_6 {
+    color: #7A2180;
+    font-size: 20px;
+}
+
+    .icono_6:hover {
+        color: #E40276;
+    }
+
+.icono_5:hover {
+    color: #7A2180;
+}
+
+.date {
+    color: var(--lt-color-gray-900);
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 20px;
+}
+
+.part-photo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    height: 35px;
+    width: 35px;
+    border: solid 1px var(--lt-color-gray-500);
+    border-radius: 50px;
+    width: 100%;
+}
+
+.user_name {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+}
+
+.colum_a {
+    grid-column: 1;
+}
+
+.colum_b {
+    grid-column: 1;
+}
+
+.initials {
+    font-size: 10px;
+}
+
+.card-header {
+    margin-left:20px;
+    padding: 0px;
+    margin-bottom: 0;
+    background-color: transparent;
+    border-bottom: 0 solid #d9dee3;
+}
+.nameUserText {
+    display: block;
+    border: solid 1px #808080;
+    border-radius: 50px;
+    padding: 10px 5px;
+    margin:0px;
+    color: #7A2180;
+    font-size:15px;
+    font-weight:900;
+    text-transform:uppercase;
+}
+
+.dateDay{
+    margin: auto 10px;
+    color: #808080;
+    font-size: 15px;
+    font-weight:800;
+}

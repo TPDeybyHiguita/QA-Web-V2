@@ -1,0 +1,418 @@
+﻿
+
+
+@import url(../styles.css);
+@import url(../AppHeader.css);
+
+
+
+.bodybody {
+    margin-top: 1%;
+}
+
+#open__h1 {
+    background-color: #fff;
+}
+
+.row_1 {
+    display: flex;
+    flex-direction: row;
+    max-width: 100%;
+    justify-content: left;
+}
+
+.tex_01 {
+    font-size: 18px;
+    color: var(--lt-color-gray-700);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.tex_02 {
+    font-size: 18px;
+    color: var(--lt-color-gray-500);
+    text-decoration: none;
+    font-weight: lighter;
+    font-style: oblique;
+}
+
+
+.row_2 {
+    display: flex;
+    flex-direction: row;
+    max-width: 100%;
+    margin-top: 0px;
+    justify-content: center;
+}
+
+.p_1 {
+    margin: 15px 0px;
+}
+
+.card {
+    padding: 15px;
+    width: 100%;
+    border: solid 1px var(--lt-color-gray-200);
+}
+
+.card_2_a {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+}
+
+.card-body {
+    border: transparent;
+}
+
+.card-header {
+    justify-content: center;
+    align-items: center;
+    border: transparent;
+    background-color: transparent;
+    padding: 1.5rem 0.1rem;
+}
+
+
+.card_2_b {
+    border-radius: 0px 0px 10px 10px;
+    border: solid 1px #f2f2f2;
+    background-color: #f2f2f2;
+}
+
+.row_3 {
+    display: flex;
+    flex-direction: row;
+    margin: 50px auto;
+    max-width: 100%;
+    width: 100%;
+    padding: 30px;
+    justify-content: center;
+    justify-content: center;
+    background-color: var(--fondo-azul);
+    border-radius: 10px;
+}
+
+@media (min-width: 1200px) {
+    .col-xl-6 {
+        width: 100%;
+    }
+}
+
+.message_1 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.message {
+    display: flex;
+    justify-content: center;
+    margin: 50px auto;
+}
+
+.row_3_a {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    margin: 5px 0px;
+    justify-content: left;
+    align-items: center;
+}
+
+
+.row_3_a_a {
+    display: grid;
+    grid-template-columns: 1fr 1fr .2fr;
+    margin: 0px 0px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/*.form-control {
+    margin: 0px 10px 10px 0px;
+}*/
+
+@media (min-width: 768px) {
+    .col-md-6_a {
+        flex: 0 0 auto;
+        width: 95%;
+    }
+}
+
+@media (min-width: 768px) {
+    .col-md-6_b {
+        flex: 0 0 auto;
+        width: 95%;
+        justify-content: center;
+        margin-top: 12px;
+    }
+}
+
+.buton_1_a {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: #7A2180;
+    border: 1px solid transparent;
+    padding: 7px;
+}
+
+#jsSpinner {
+    display: none;
+    margin: 0px 30px;
+}
+
+
+#CssCol {
+    margin-top: 20px;
+}
+
+.cssMensa {
+    /*display:none;*/
+    margin-right: 100px;
+}
+
+.icono_1 {
+    margin: 0px 10px;
+}
+
+.card {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .col-md-6 {
+        flex: 0 0 auto;
+        width: 50%;
+    }
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.card-body_1 {
+    width: 50%;
+    padding: 20px;
+}
+
+.form-password-toggle {
+    margin-top: 30px;
+}
+
+.card-header_1 {
+    text-align: center;
+    font-size: 22px;
+    color: #6f42c1;
+    font-weight: 700;
+}
+
+.colum_2 {
+    margin-top: 80px;
+}
+
+.colum_a {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    width: 100%;
+}
+
+.mt-2 {
+    margin-top: 30px;
+}
+
+#jsAlert_1 {
+    display: none;
+}
+
+#NuevaAlerta {
+    display: none;
+}
+#NuevaAlerta2 {
+    display: none;
+}
+
+#NuevaAlerta3 {
+    display: none;
+}
+#NuevaAlerta4 {
+    display: none;
+}
+
+#NuevaAlerta5 {
+    display: none;
+}
+
+#jsAlert_2 {
+    display: none;
+}
+
+#jspdfPlantilla {
+    display: none;
+}
+
+#jspdfBtn {
+    display: none;
+}
+
+#jspdfBtn2 {
+    display: none;
+}
+
+#jsSpinner_1 {
+    margin: 0px 10px;
+    display: none;
+}
+
+#jsSpinner_2 {
+    margin: 0px 10px;
+    display: none;
+}
+
+#jsSpinner_3 {
+    margin: 0px 10px;
+    display: none;
+}
+
+#jsSpinner_4 {
+    margin: 0px 10px;
+    display: none;
+}
+
+.cssalet {
+    margin-top: 20px;
+    display: none;
+}
+
+.tab-content_ed {
+    flex-shrink: 1;
+    border: none;
+    box-shadow: 0 2px 6px 0 #fff;
+    background-clip: padding-box;
+    background: #fff;
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+}
+
+
+
+
+.form-2 {
+    justify-content: left;
+    align-items: center;
+    width: 97%;
+}
+
+
+
+.form-1-a {
+    grid-row: 1;
+    width: 50%;
+}
+
+.form-1-a {
+    grid-row: 2;
+    width: 50%;
+}
+
+.hr-1 {
+    margin-bottom: 30px;
+}
+
+#form-0 {
+    display: none;
+}
+#form-1 {
+    display: none;
+}
+
+#form-2 {
+    display: none;
+}
+/*
+#form-10 {
+    display: none;
+}*/
+
+#form-11 {
+    display: none;
+}
+
+#form-12 {
+    display: none;
+}
+
+
+#form-13 {
+    display: none;
+}
+
+#form-14 {
+    display: none;
+}
+
+#form-15 {
+    display: none;
+}
+
+.ManagerCard {
+    display:grid;
+    grid-template-columns: 1fr .1fr;
+    justify-content:left;
+    align-items:center;
+}
+
+.g-2{
+    margin-top:5px;
+}
+
+.list-group {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    padding-left: 0;
+    margin-bottom: 0;
+    border-radius: 0.5rem;
+}
+
+.listDate {
+    position: relative;
+    display: flex;
+    height: 200px;
+    line-height: 1em;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    width: 100%;
+    padding: 5px 0px;
+}
+
+    .listDate::-webkit-scrollbar {
+        width: 2px; /* Tamaño del scroll en vertical */
+        height: 8px; /* Tamaño del scroll en horizontal */
+        /*display: none;*/ /* Ocultar scroll */
+    }
+
+    .listDate::-webkit-scrollbar-thumb {
+        background: #808080;
+        border-radius: 15px;
+    }
+
+    /* Cambiamos el fondo y agregamos una sombra cuando esté en hover */
+        .listDate::-webkit-scrollbar-thumb:hover {
+            background: #b3b3b3;
+            box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+        }
+
+    /* Cambiamos el fondo cuando esté en active */
+        .listDate::-webkit-scrollbar-thumb:active {
+            background-color: #999999;
+        }
+
+
+.row_4 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}

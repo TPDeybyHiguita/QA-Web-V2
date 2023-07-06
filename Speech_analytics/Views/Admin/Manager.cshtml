@@ -1,0 +1,615 @@
+﻿@{
+    ViewBag.Title = "Manager";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<!DOCTYPE html>
+
+
+<html lang="es"
+      class="light-style layout-menu-fixed"
+      dir="ltr"
+      data-theme="theme-default"
+      data-assets-path="../assets/"
+      data-template="vertical-menu-template-free">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title> Admin | Analytics</title>
+
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="Vistas/multimedia/teleperformance-group.svg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+
+    <!-- Icons. Uncomment required icon fonts -->
+    <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="../assets/css/demo.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <link rel="stylesheet" href="../assets/vendor/libs/apex-charts/apex-charts.css" />
+
+    <link href="~/Css/Admin/AdminManager.css" rel="stylesheet" />
+
+
+
+    <!-- Page CSS -->
+    <!-- Helpers -->
+    <script src="../assets/vendor/js/helpers.js"></script>
+
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="../assets/js/config.js"></script>
+
+
+</head>
+
+<body>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+        <div class="layout-container">
+            <!-- Menu -->
+
+            <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme menu_1">
+
+                <div class="message">
+                    <p class="message_1">Bienvenido</p>
+                </div>
+
+
+
+                <ul class="menu-inner py-1" id="jsVerificarpermisosMenu">
+                    <!-- Dashboard -->
+
+
+
+                </ul>
+
+
+            </aside>
+
+
+            <!-- / Menu -->
+            <!-- Layout container -->
+            <div class="layout-page">
+                <!-- Navbar -->
+
+                <header class="p-3 mb-3 border-bottom header_div">
+                    <div class="container">
+                        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                            <a href="#" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+                                <img class="identidad_logo" src="~/Multime/Mesa de trabajo 17 copia 5.png" alt="">
+                            </a>
+
+                            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                                <li><a href="#" class="nav-link link-menu">TP home</a></li>
+                                <li><a href="#" class="nav-link link-menu">TP ...</a></li>
+                                <li><a href="#" class="nav-link link-menu">TP ...</a></li>
+                            </ul>
+
+                            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                                <li>
+                                    <a href="#" class="nav-link px-2 link-secondary">
+                                        <i class="fa-solid fa-envelope icono_5"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="nav-link px-2 link-secondary">
+                                        <i class="fa-solid fa-comment icono_6"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="nav-link px-2 link-secondary">
+                                        <i class="fa-solid fa-file icono_5"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="nav-link px-2 link-secondary">
+                                        <i class="fa-solid fa-circle-exclamation icono_6"></i>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="nav-link px-2 link-secondary">
+                                        <div class="date" id="date">
+
+                                        </div>
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                            <div class="dateDay" id="jsDateDay"></div>
+
+
+                            <div class="dropdown user_name nameUser">
+                                <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle nameUserText" data-bs-toggle="dropdown" aria-expanded="false" id="nameUserInicial">
+
+                                </a>
+
+                                <ul class="dropdown-menu text-small colum_b nameUserColum">
+                                    <li><a class="dropdown-item" href="~/User/UpdateProfile">Editar perfil</a></li>
+                                    @*<li><a class="dropdown-item" href="#">Más</a></li>
+                                        <li><a class="dropdown-item" href="#">Más</a></li>*@
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" id="jsLoginOff" onclick="closeSession();">Cerrar session</a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </header>
+
+                <!-- / Navbar -->
+
+                <div class="content-wrapper">
+                    <!-- Content -->
+
+                    <div class="container-xxl flex-grow-1 container-p-y">
+
+                        <main class="bodybody ">
+
+                            @*MODAL NUEVO ANALISTA*@
+
+                            <div class="modal fade" id="newAnalista" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog modal-lg" role="document">
+                                    <div class="modal-content">
+
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel3">Nuevo Analista</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="alert alert-dark" id="NuevaAlerta" role="alert">
+                                                This is a dark alert — check it out!
+                                            </div>
+                                            <div class="row">
+                                                <div class="col mb-0 form-1">
+                                                    <label for="emailLarge" class="form-label">Usuario</label>
+                                                    <input type="text" id="analistaCCMS" class="form-control">
+                                                    <div id="defaultFormControlHelp" class="form-text">
+                                                        Ingrese el usuario del analista.
+                                                        <button type="button" class="btn rounded-pill btn-icon btn-outline-secondary" onclick="newAnalista();">
+                                                            <i class="fa-solid fa-arrow-right"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row g-2" id="form-0">
+                                                <div class="col mb-0">
+                                                    <label for="emailLarge" class="form-label">Nombre</label>
+                                                    <input type="text" id="analistaNombre" class="form-control" value="" readonly>
+                                                    <div id="defaultFormControlHelp" class="form-text">Si es necesario edite el campo.</div>
+                                                </div>
+                                                <div class="col mb-0">
+                                                    <label for="emailLarge" class="form-label">Correo</label>
+                                                    <input type="text" id="analistaCorreo" class="form-control" readonly>
+                                                    <div id="defaultFormControlHelp" class="form-text">Si es necesario edite el campo.</div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row g-2" id="form-1">
+                                                <div class="col mb-0">
+                                                    <label class="form-label" for="country">Cliente</label>
+                                                    <select id="jsCliente" class="select2 form-select" onchange="loadSubClientes();">
+                                                    </select>
+                                                    <div id="defaultFormControlHelp" class="form-text">Seleccione el cliente asigado al analista.</div>
+                                                </div>
+                                                <div class="col mb-0">
+                                                    <label class="form-label" for="country">Lob</label>
+                                                    <select id="jslab" class="select2 form-select">
+                                                    </select>
+                                                    <div id="defaultFormControlHelp" class="form-text">Seleccione el lob asignado al analista.</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer" id="form-2">
+                                            <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                            <button type="button" class="btn btn-primary" onclick="saveanAnalyst();">Guardar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            @*MODAL ASIGNAR LOB *@
+
+                            <div class="modal fade" id="newLob" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel3">Asignar LOB</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+
+                                            <div class="alert alert-dark" id="NuevaAlerta3" role="alert">
+                                                Loadin...
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col mb-0 form-1">
+                                                    <label for="emailLarge" class="form-label">CCMS</label>
+                                                    <input type="number" id="analistaCCMSNewLob" class="form-control" readonly>
+                                                    <div id="defaultFormControlHelp" class="form-text"> Ingrese el CCMS del analista.</div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row g-2">
+                                                <div class="col mb-0">
+                                                    <label class="form-label" for="country">Cliente</label>
+                                                    <select id="jsClienteNewLob" class="select2 form-select" onchange="loadSubClientesNewLob();">
+                                                    </select>
+                                                    <div id="defaultFormControlHelp" class="form-text">Seleccione el cliente asigado al analista.</div>
+                                                </div>
+                                                <div class="col mb-0">
+                                                    <label class="form-label" for="country">Lob</label>
+                                                    <select id="jslabNewLob" class="select2 form-select">
+                                                    </select>
+                                                    <div id="defaultFormControlHelp" class="form-text">Seleccione el lob asignado al analista.</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                            <button type="button" class="btn btn-primary" onclick="asignarLob();">Guardar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            @*MODAL VER USUARIO LOB*@
+
+                            <div class="modal fade" id="loadLob" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog modal-lg" role="document">
+                                    <div class="modal-content">
+
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel3">Usuario: <strong id="jsCCMSAnalista">user red</strong></h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="alert alert-dark" id="NuevaAlerta2" role="alert">
+                                                This is a dark alert — check it out!
+                                            </div>
+
+                                            <ul class="list-group" id="jsUlLob">
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                    Loadin...
+                                                    <span class="badge bg-primary">...</span>
+                                                </li>
+                                            </ul>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            @*MODAL CALCULAR DÍAS*@
+
+                            <div class="modal fade show" id="calculateDays" tabindex="-1" aria-modal="true" role="dialog" _mstvisible="0" style="display: none;">
+                                <div class="modal-dialog modal-dialog-centered" role="document" _mstvisible="1">
+                                    <div class="modal-content" _mstvisible="2">
+                                        <div class="modal-header" _mstvisible="3">
+                                            <h5 class="modal-title" id="modalCenterTitle" _msthash="311701" _msttexthash="196001" _mstvisible="4">Calcular días</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar" _mstaria-label="76414" _mstvisible="4"></button>
+                                        </div>
+
+                                        <div class="modal-body" _mstvisible="3">
+                                            <div class="alert alert-dark" id="NuevaAlerta5" role="alert">
+                                                loading...
+                                            </div>
+
+                                            <div class="row" _mstvisible="4">
+                                                <div class="col mb-3" _mstvisible="5">
+                                                    <label for="nameWithTitle" class="form-label" _msthash="1803841" _msttexthash="76193" _mstvisible="6">Inactividad</label>
+
+                                                    <div class="input-group">
+                                                        <span class="input-group-text" id="numDaysNotActivity">0</span>
+                                                        <input type="date" id="jsNotDate" class="form-control">
+                                                    </div>
+
+                                                    <div id="defaultFormControlHelp" class="form-text">
+                                                        Seleccione los días que NO tendra actividad.
+                                                        <button type="button" class="btn rounded-pill btn-icon btn-outline-secondary" onclick="calculateDays();">
+                                                            <i class="fa-solid fa-caret-down"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="listDate">
+                                                <div class="col-lg-6">
+                                                    <small class="text-light fw-semibold" _msthash="2428127" _msttexthash="136851">Fechas de inactividad</small>
+                                                    <div class="demo-inline-spacing mt-3">
+                                                        <ul class="list-group" id="listDate">
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row g-2" id="form-10" _mstvisible="4">
+                                                <div class="col mb-0" _mstvisible="5">
+                                                    <label for="emailWithTitle" class="form-label" _msthash="1804166" _msttexthash="385671" _mstvisible="6">DÍAS DEL MES</label>
+                                                    <input type="text" id="daysMonth" class="form-control" _mstplaceholder="183482" _mstvisible="6" readonly="">
+                                                </div>
+                                                <div class="col mb-0" _mstvisible="5">
+                                                    <label for="dobWithTitle" class="form-label" _msthash="1804413" _msttexthash="22126" _mstvisible="6">DÍAS DE ACTIVIDAD</label>
+                                                    <input type="text" id="daysActivity" class="form-control" _mstplaceholder="78351" _mstvisible="6" readonly="">
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                        <div class="modal-footer" _mstvisible="3">
+                                            <button type="button" class="btn btn-primary" onclick="saveDaysActivity();">Guardar</button>
+                                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" _msthash="1177982" _msttexthash="76414" _mstvisible="4">Cerrar</button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row_1">
+                                <h4 class="tex_01"><a href="#" class="tex_02">Adiministrador /</a> Random configuration </h4>
+
+                                <div class="position-fixed bottom-0 end-0 p-3 cssMensa" style="z-index: 11">
+                                    <div id="liveToast" class="toast bg-dark" role="alert" aria-live="assertive" aria-atomic="true">
+                                        <div class="toast-header">
+                                            <i class="fa-solid fa-bell icono_1"></i>
+
+                                            <strong class="me-auto">Notificación</strong>
+                                            <small id="jsFecha"></small>
+                                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                                        </div>
+                                        <div class="toast-body" id="jsMensaje">
+                                            Loadin...
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row_2">
+
+                            </div>
+
+                            <div class="row_3">
+                                <div class="card mb-4">
+
+                                    <div id="jsAlert_1" class="alert alert-danger" role="alert" _msthash="2889965" _msttexthash="1363245">
+                                        Esta es una alerta de peligro, ¡compruébalo!
+                                    </div>
+
+                                    <h5 class="card-header"><a href="">Manager</a></h5>
+
+                                    <div class="card-body">
+                                        <p>
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                            Deleniti corporis laborum voluptates maxime consequuntur commodi,
+                                            officia perferendis laudantium voluptatibus natus aliquam eligendi
+                                            velit ad labore odit quidem mollitia. Beatae, dolores.
+                                        </p>
+                                    </div>
+                                    <hr class="my-0" />
+                                    <div class="card-body">
+
+
+
+                                    </div>
+
+
+
+
+                                    <!-- /Account -->
+                                </div>
+                            </div>
+
+                            <div class="row_3">
+                                <div class="card mb-4">
+
+                                    <div id="jsAlert_1" class="alert alert-danger" role="alert" _msthash="2889965" _msttexthash="1363245">
+                                        Esta es una alerta de peligro, ¡compruébalo!
+                                    </div>
+
+                                    <h5 class="card-header"><a href="">Cuota Mensual</a></h5>
+                                    <hr class="my-0" />
+
+                                    <div class="card-body">
+                                        <form id="formAccountSettings" method="POST" onsubmit="return false">
+                                            <div class="row">
+
+
+                                                <div class="mb-3 col-md-6">
+
+                                                    <label class="form-label" for="country">Cliente</label>
+                                                    <select id="jsClienteLevel" class="select2 form-select" onchange="loadSubClientesLevel();">
+                                                    </select>
+                                                    <div id="defaultFormControlHelp" class="form-text">
+                                                        Seleccione el CLIENTE.
+                                                    </div>
+                                                </div>
+
+                                                <div class="mb-3 col-md-6">
+                                                    <label class="form-label" for="country">Lob</label>
+                                                    <select id="jslabLevel" class="select2 form-select" onchange="analystsAssign();">
+                                                    </select>
+                                                    <div id="defaultFormControlHelp" class="form-text">
+                                                        Seleccione el LOB correspondiente al cliente.
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="mb-3 col-md-6" id="form-11">
+
+                                                    <label class="form-label" for="country">Analistas asignados</label>
+                                                    <input class="form-control" type="text" id="jsAnalysNewRoom" readonly="">
+                                                    <div id="defaultFormControlHelp" class="form-text">
+                                                        Número de analistas que tienen a cargo el LOB.
+                                                    </div>
+                                                </div>
+
+                                                <div class="mb-3 col-md-6" id="form-15">
+
+                                                    <label class="form-label" for="country">Cumplimiento actual de la cuota </label>
+                                                    <input class="form-control" type="text" id="jsCumplimientoActividad" readonly="">
+                                                    <div id="defaultFormControlHelp" class="form-text">
+                                                        NÚMERO de actividades realizadas.
+                                                    </div>
+                                                </div>
+
+                                                <div class="mb-3 col-md-6" id="form-12">
+
+                                                    <label class="form-label" for="country">Promedio de la actividad</label>
+                                                    <input class="form-control" type="text" id="jsPromNewRoom" readonly="">
+                                                    <div id="defaultFormControlHelp" class="form-text">
+                                                        NÚMERO de actividades a realizar por el analista.
+                                                    </div>
+                                                </div>
+
+                                                <div class="col mb-0" id="form-13">
+                                                    <label for="emailLarge" class="form-label">DÍAS DE ACTIVIDAD</label>
+                                                    <input type="number" id="jsDaysNewRoom" class="form-control" onchange="loadCalculo();">
+                                                    <div id="defaultFormControlHelp" class="form-text">
+                                                        Calcule el número de DÍAS para ejercer actividad.
+                                                        <button type="button" class="btn rounded-pill btn-icon btn-outline-secondary" onclick="daysMonth();">
+                                                            <i class="fa-solid fa-calculator"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                                <div class="mb-3 col-md-6" id="form-14">
+                                                    <label for="exampleFormControlReadOnlyInput1" class="form-label" _msthash="3571516" _msttexthash="196898">CUOTA</label>
+                                                    <input class="form-control" type="text" id="jsCuotaNewRoom" onchange="loadCalculo();">
+                                                    <div id="defaultFormControlHelp" class="form-text">
+                                                        Ingrese la CUOTA que a cumplir para el mes vigente.
+                                                    </div>
+                                                </div>
+
+
+
+                                            </div>
+                                            <div class="mt-2">
+                                                <button onclick="saveCuatoMensual();" type="submit" class="buton_1">Guardar</button>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                    <div class="card-body">
+                                    </div>
+
+                                    <!-- /Account -->
+                                </div>
+                            </div>
+
+
+                            <div class="row_3">
+                                <div class="card">
+                                    <div class="ManagerCard">
+                                        <h5 class="card-header">Analistas</h5>
+
+                                        <button type="button" class="btn rounded-pill btn-icon btn-secondary" onclick="openModal6();">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </button>
+                                    </div>
+                                    <div class="alert alert-dark" id="NuevaAlerta4" role="alert">
+                                        Loadin...
+                                    </div>
+
+                                    <div class="table-responsive text-nowrap">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>CCMS</th>
+                                                    <th>Nombre</th>
+                                                    <th>Correo</th>
+                                                    <th>Estado</th>
+                                                    <th>Acciones</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="table-border-bottom-0" id="jstbodyAnalys">
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </main>
+
+                    </div>
+                </div>
+                <!-- / Content -->
+                <!-- Footer -->
+                <footer class="content-footer footer bg-footer-theme">
+                    <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+                        TP
+                    </div>
+                </footer>
+                <!-- / Footer -->
+
+                <div class="content-backdrop fade"></div>
+            </div>
+            <!-- Content wrapper -->
+        </div>
+        <!-- / Layout page -->
+    </div>
+
+
+    <!-- Overlay -->
+    <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+    <!-- / Layout wrapper -->
+
+    <div class="buy-now">
+        <a href="#"
+           target="_blank"
+           class="btn btn-danger btn-buy-now"> Help</a>
+    </div>
+
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../assets/vendor/js/bootstrap.js"></script>
+    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+    <script src="../assets/vendor/js/menu.js"></script>
+    <!-- endbuild -->
+    <!-- Vendors JS -->
+    <script src="../assets/vendor/libs/apex-charts/apexcharts.js"></script>
+
+    <!-- Main JS -->
+    <script src="../assets/js/main.js"></script>
+
+    <!-- Page JS -->
+    <script src="../assets/js/dashboards-analytics.js"></script>
+
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="~/Js/menuVerticalTotal.js"></script>
+    <script src="~/Js/AdminManager.js"></script>
+
+</body>
+</html>
+
+

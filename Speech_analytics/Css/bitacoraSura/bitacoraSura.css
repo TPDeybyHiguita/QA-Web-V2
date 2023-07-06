@@ -1,0 +1,20 @@
+﻿
+
+@import url(../styles.css);
+@import url(../AppIndex.css);
+
+.ManagerCard{
+    display: flex;
+    justify-content:space-between;
+    margin:20px 0px;
+}
+
+.formBitacora {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0px 20px 20px;
+}
+
+.intupBitacora_1{
+    width: 80%;
+}

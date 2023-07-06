@@ -1,0 +1,494 @@
+﻿@{
+    ViewBag.Title = "PermisosUsers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+
+<html lang="es"
+      class="light-style layout-menu-fixed"
+      dir="ltr"
+      data-theme="theme-default"
+      data-assets-path="../assets/"
+      data-template="vertical-menu-template-free">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title> User | Analytics</title>
+
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="Vistas/multimedia/teleperformance-group.svg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+
+    <!-- Icons. Uncomment required icon fonts -->
+    <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
+    <script src="https://kit.fontawesome.com/3f75b3031c.js" crossorigin="anonymous"></script>
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="../assets/css/demo.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <link rel="stylesheet" href="../assets/vendor/libs/apex-charts/apex-charts.css" />
+
+    <link href="~/Css/AppHeader.css" rel="stylesheet" />
+    <link href="~/Css/AdminNewUser.css" rel="stylesheet" />
+    <link href="~/Css/styles.css" rel="stylesheet" />
+
+    <!-- Page CSS -->
+    <!-- Helpers -->
+    <script src="../assets/vendor/js/helpers.js"></script>
+
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="../assets/js/config.js"></script>
+
+
+</head>
+
+<body>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+        <div class="layout-container">
+            <!-- Menu -->
+
+            <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme menu_1">
+
+                <div class="message">
+                    <p class="message_1">Bienvenido</p>
+                </div>
+
+
+
+                <ul class="menu-inner py-1" id="jsVerificarpermisosMenu">
+                    <!-- Dashboard -->
+
+
+
+                </ul>
+
+
+            </aside>
+
+
+            <!-- / Menu -->
+            <!-- Layout container -->
+            <div class="layout-page">
+                <!-- Navbar -->
+
+                <header class="p-3 mb-3 border-bottom header_div">
+                    <div class="container">
+                        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                            <a href="#" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+                                <img class="identidad_logo" src="~/Multime/Mesa de trabajo 17 copia 5.png" alt="">
+                            </a>
+
+                            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                                <li><a href="#" class="nav-link link-menu">TP home</a></li>
+                                <li><a href="#" class="nav-link link-menu">TP ...</a></li>
+                                <li><a href="#" class="nav-link link-menu">TP ...</a></li>
+                            </ul>
+
+                            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                                <li>
+                                    <a href="#" class="nav-link px-2 link-secondary">
+                                        <i class="fa-solid fa-envelope icono_5"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="nav-link px-2 link-secondary">
+                                        <i class="fa-solid fa-comment icono_6"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="nav-link px-2 link-secondary">
+                                        <i class="fa-solid fa-file icono_5"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="nav-link px-2 link-secondary">
+                                        <i class="fa-solid fa-circle-exclamation icono_6"></i>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="nav-link px-2 link-secondary">
+                                        <div class="date" id="date">
+
+                                        </div>
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                            <div class="dateDay" id="jsDateDay"></div>
+
+
+                            <div class="dropdown user_name nameUser">
+                                <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle nameUserText" data-bs-toggle="dropdown" aria-expanded="false" id="nameUserInicial">
+
+                                </a>
+
+                                <ul class="dropdown-menu text-small colum_b nameUserColum">
+                                    <li><a class="dropdown-item" href="~/User/UpdateProfile">Editar perfil</a></li>
+                                    @*<li><a class="dropdown-item" href="#">Más</a></li>
+                                        <li><a class="dropdown-item" href="#">Más</a></li>*@
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" id="jsLoginOff" onclick="closeSession();">Cerrar session</a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </header>
+
+                <!-- / Navbar -->
+
+                <div class="content-wrapper">
+                    <!-- Content -->
+
+                    <div class="container-xxl flex-grow-1 container-p-y">
+
+                        <main class="bodybody ">
+
+                            <div class="row_1">
+                                <h4 class="tex_01"><a href="#" class="tex_02">Admin /</a><a href="plantilla_11.html" class="tex_02">Results /</a> User permits</h4>
+                                <div class="position-fixed bottom-0 end-0 p-3 cssMensa" style="z-index: 11">
+                                    <div id="liveToast" class="toast bg-dark" role="alert" aria-live="assertive" aria-atomic="true">
+                                        <div class="toast-header">
+                                            <i class="fa-solid fa-bell icono_1"></i>
+
+                                            <strong class="me-auto">Notificación</strong>
+                                            <small id="jsFecha"></small>
+                                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                                        </div>
+                                        <div class="toast-body" id="jsMensaje">
+                                            Loadin...
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row_2">
+
+                            </div>
+
+                            <div class="row_3">
+                                <div class="card mb-4">
+                                    <h5 class="card-header">Información de usuario</h5>
+                                    <div id="jsAlert_1" class="alert alert-danger" role="alert" _msthash="2889965" _msttexthash="1363245">
+
+                                    </div>
+
+
+                                    <hr class="my-0" />
+
+                                    <div class="card-body">
+                                        <form id="formAccountSettings" method="POST" onsubmit="return false">
+                                            <div class="row">
+
+
+                                                <div class="mb-3">
+                                                    <label for="exampleDataList" class="form-label" _msthash="3572257" _msttexthash="350467">Usuario Red</label>
+                                                    <input class="form-control" type="text" id="user" placeholder="Escriba para buscar..." _mstplaceholder="391222" onchange="loadDataUser();">
+
+                                                </div>
+
+                                                <div class="nav-align-top mb-4" id="bodydataUser" style="display: none;">
+                                                    <ul class="nav nav-pills mb-3 nav-fill" role="tablist">
+                                                        <li class="nav-item">
+                                                            <button type="button" class="nav-link" role="tab" data-bs-toggle="tab" data-bs-target="#navs-pills-justified-home" aria-controls="navs-pills-justified-home" aria-selected="false">
+                                                                <i class="fa-regular fa-user"></i>
+                                                                Perfil 
+                                                            </button>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <button type="button" class="nav-link active" role="tab" data-bs-toggle="tab" data-bs-target="#navs-pills-justified-profile" aria-controls="navs-pills-justified-profile" aria-selected="true">
+                                                                <i class="fa-solid fa-list-check"></i>
+                                                                Profile
+                                                            </button>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="tab-content">
+                                                        <div class="tab-pane fade" id="navs-pills-justified-home" role="tabpanel">
+
+                                                            <h5 class="card-header">Detalles del perfil</h5>
+                                                            <!-- Account -->
+
+                                                            <hr class="my-0">
+                                                            <div class="card-body">
+                                                                <form id="formAccountSettings" method="POST" onsubmit="return false">
+
+                                                                    <div class="elementosFila">
+
+                                                                        <div class="filaOne">
+                                                                            <div class="mb-3 col-md-6 elemento">
+                                                                                <label for="firstName" class="form-label">Ccms</label>
+                                                                                <input class="form-control" type="number" id="jsccms" name="jsccms" autofocus="">
+                                                                            </div>
+                                                                            <div class="mb-3 col-md-6 elemento">
+                                                                                <label for="lastName" class="form-label">Usuario</label>
+                                                                                <input class="form-control" type="text" name="jsuserRed" id="jsuserRed">
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="filaOne">
+                                                                            <div class="mb-3 col-md-6 elemento">
+                                                                                <label for="firstName" class="form-label">Nombre</label>
+                                                                                <input class="form-control" type="text" id="jsname" name="jsname" autofocus="">
+                                                                            </div>
+                                                                            <div class="mb-3 col-md-6 elemento">
+                                                                                <label for="lastName" class="form-label">Apellido</label>
+                                                                                <input class="form-control" type="text" name="jslastName" id="jslastName">
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="filaOne">
+                                                                            <div class="mb-3 col-md-6 elemento">
+                                                                                <label for="firstName" class="form-label">Correo</label>
+                                                                                <input class="form-control" type="text" id="jsemail" name="jsemail" autofocus="">
+                                                                            </div>
+                                                                            <div class="mb-3 col-md-6 elemento">
+                                                                                <label for="lastName" class="form-label">Correo Alterno</label>
+                                                                                <input class="form-control" type="text" name="jsemailAlternative" id="jsemailAlternative">
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="filaOne">
+                                                                            <div class="mb-3 col-md-6 elemento">
+                                                                                <label for="firstName" class="form-label">Ccms Manager</label>
+                                                                                <input class="form-control" type="number" id="jsccmsManager" name="jsccmsManager" autofocus="">
+                                                                            </div>
+                                                                            <div class="mb-3 col-md-6 elemento">
+                                                                                <label for="lastName" class="form-label">Estado</label>
+                                                                                <div class="form-check form-switch" style=" margin-right: 500px">
+                                                                                    <input class="form-check-input float-end" type="checkbox" role="switch" id="jsstate">
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                                <!-- /Account -->
+
+                                                                <div class="mt-2">
+                                                                    <button onclick="updateUserData();" type="submit" class="buton_1">Actualizar</button>
+                                                                    <div class="spinner-border spinner-border-sm text-secondary" role="status" id="jsLoadingUserData" style="display:none;">
+                                                                        <span class="visually-hidden" _msthash="4035993" _msttexthash="80106">Carga...</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="tab-pane fade show" id="navs-pills-justified-profile" role="tabpanel">
+                                                            <div class="card-body">
+                                                                <h5 class="card-header">Detalles del perfil</h5>
+                                                                <!-- Account -->
+
+                                                                <hr class="my-0">
+
+                                                                <div id="accordionPopoutIcon" class="accordion accordion-popout">
+
+                                                                    <div class="card accordion-item card_permissions active">
+                                                                        <h2 class="accordion-header text-body d-flex justify-content-between" id="accordionPopoutIconOne">
+                                                                            <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordionPopoutIcon-1" aria-controls="accordionPopoutIcon-1">
+                                                                                Administrador
+                                                                            </button>
+                                                                        </h2>
+
+                                                                        <div id="accordionPopoutIcon-1" class="accordion-collapse collapse" data-bs-parent="#accordionPopoutIcon">
+                                                                            <div class="accordion-body">
+                                                                                <div class="form-check mt-3">
+                                                                                    <input class="form-check-input check" type="checkbox" value="administradorNewUser" id="administradorNewUser">
+                                                                                    <label class="form-check-label" for="defaultCheck1" _msthash="4727216" _msttexthash="202267"> Crear usuarios </label>
+                                                                                </div>
+                                                                                <div class="form-check mt-3">
+                                                                                    <input class="form-check-input check" type="checkbox" value="administratorEditPermissions" id="administratorEditPermissions">
+                                                                                    <label class="form-check-label" for="defaultCheck1" _msthash="4727216" _msttexthash="202267"> Editar permisos </label>
+                                                                                </div>
+                                                                                <div class="form-check mt-3">
+                                                                                    <input class="form-check-input check" type="checkbox" value="administratorAddClient" id="administratorAddClient">
+                                                                                    <label class="form-check-label" for="defaultCheck1" _msthash="4727216" _msttexthash="202267"> Agregar Campañas </label>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="card accordion-item card_permissions">
+                                                                        <h2 class="accordion-header text-body d-flex justify-content-between" id="accordionPopoutIconTwo">
+                                                                            <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordionPopoutIcon-2" aria-controls="accordionPopoutIcon-2">
+                                                                                Manager
+                                                                            </button>
+                                                                        </h2>
+                                                                        <div id="accordionPopoutIcon-2" class="accordion-collapse collapse" data-bs-parent="#accordionPopoutIcon">
+                                                                            <div class="accordion-body">
+                                                                                <div class="form-check mt-3">
+                                                                                    <input class="form-check-input check" type="checkbox" value="managerEquipment" id="managerEquipment">
+                                                                                    <label class="form-check-label" for="defaultCheck1" _msthash="4727216" _msttexthash="202267"> Mi Equipo </label>
+                                                                                </div>
+                                                                                <div class="form-check mt-3">
+                                                                                    <input class="form-check-input check" type="checkbox" value="managerRandomnessResults" id="managerRandomnessResults">
+                                                                                    <label class="form-check-label" for="defaultCheck1" _msthash="4727216" _msttexthash="202267"> Resultados de aleatoriedad </label>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="card accordion-item card_permissions">
+                                                                        <h2 class="accordion-header text-body d-flex justify-content-between" id="accordionPopoutIconThree">
+                                                                            <button type="button" class="accordion-button" data-bs-toggle="collapse" data-bs-target="#accordionPopoutIcon-3" aria-controls="accordionPopoutIcon-3" role="tabpanel">
+                                                                                Aleatoriedad
+                                                                            </button>
+                                                                        </h2>
+                                                                        <div id="accordionPopoutIcon-3" class="accordion-collapse collapse show" data-bs-parent="#accordionPopoutIcon">
+                                                                            <div class="accordion-body">
+                                                                                <div class="form-check mt-3">
+                                                                                    <input class="form-check-input check" type="checkbox" value="random" id="random">
+                                                                                    <label class="form-check-label" for="defaultCheck1" _msthash="4727216" _msttexthash="202267">Todas las funciones </label>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="card accordion-item card_permissions ">
+                                                                        <h2 class="accordion-header text-body d-flex justify-content-between" id="accordionPopoutIconFour">
+                                                                            <button type="button" class="accordion-button" data-bs-toggle="collapse" data-bs-target="#accordionPopoutIcon-4" aria-controls="accordionPopoutIcon-4" role="tabpanel">
+                                                                                Calculadoras
+                                                                            </button>
+                                                                        </h2>
+                                                                        <div id="accordionPopoutIcon-4" class="accordion-collapse collapse show" data-bs-parent="#accordionPopoutIcon">
+                                                                            <div class="accordion-body">
+                                                                                <div class="form-check mt-3">
+                                                                                    <input class="form-check-input check" type="checkbox" value="calculatorPlans" id="calculatorPlans">
+                                                                                    <label class="form-check-label" for="defaultCheck1" _msthash="4727216" _msttexthash="202267">Planes</label>
+                                                                                </div>
+                                                                                <div class="form-check mt-3">
+                                                                                    <input class="form-check-input check" type="checkbox" value="calculatorDays" id="calculatorDays">
+                                                                                    <label class="form-check-label" for="defaultCheck1" _msthash="4727216" _msttexthash="202267">Días</label>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="card accordion-item card_permissions">
+                                                                        <h2 class="accordion-header text-body d-flex justify-content-between" id="accordionPopoutIconFive">
+                                                                            <button type="button" class="accordion-button" data-bs-toggle="collapse" data-bs-target="#accordionPopoutIcon-5" aria-controls="accordionPopoutIcon-5" role="tabpanel">
+                                                                                Bitácoras
+                                                                            </button>
+                                                                        </h2>
+                                                                        <div id="accordionPopoutIcon-5" class="accordion-collapse collapse show" data-bs-parent="#accordionPopoutIcon">
+                                                                            <div class="accordion-body">
+                                                                                <div class="form-check mt-3">
+                                                                                    <input class="form-check-input check" type="checkbox" value="logsSura" id="logsSura">
+                                                                                    <label class="form-check-label" for="defaultCheck1" _msthash="4727216" _msttexthash="202267">Sura</label>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class="mt-2">
+                                                                <button onclick="eddPermissions();" type="submit" class="buton_1">Actualizar</button>
+                                                                <div class="spinner-border spinner-border-sm text-secondary" role="status" id="jsLoading" style="display:none;">
+                                                                    <span class="visually-hidden" _msthash="4035993" _msttexthash="80106">Carga...</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+
+                                        </form>
+                                    </div>
+
+                                    <div class="col-md">
+
+                                    </div>
+                                    <!-- /Account -->
+                                </div>
+
+
+                            </div>
+
+                            <div class="row_3">
+
+                            </div>
+
+
+
+                        </main>
+
+                    </div>
+                </div>
+                <!-- / Content -->
+                <!-- Footer -->
+                <footer class="content-footer footer bg-footer-theme">
+                    <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+                        TP
+                    </div>
+                </footer>
+                <!-- / Footer -->
+
+                <div class="content-backdrop fade"></div>
+            </div>
+            <!-- Content wrapper -->
+        </div>
+        <!-- / Layout page -->
+    </div>
+
+
+    <!-- Overlay -->
+    <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+    <!-- / Layout wrapper -->
+
+    @*<div class="buy-now">
+        <a href="#"
+           target="_blank"
+           class="btn btn-danger btn-buy-now"> Help</a>
+    </div>*@
+
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../assets/vendor/js/bootstrap.js"></script>
+    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+    <script src="../assets/vendor/js/menu.js"></script>
+    <!-- endbuild -->
+    <!-- Vendors JS -->
+    <script src="../assets/vendor/libs/apex-charts/apexcharts.js"></script>
+
+    <!-- Main JS -->
+    <script src="../assets/js/main.js"></script>
+
+    <!-- Page JS -->
+    <script src="../assets/js/dashboards-analytics.js"></script>
+
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="~/Js/menuVerticalTotal.js"></script>
+    <script src="~/Js/AdminUserPermissions.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,170 @@
+﻿@{
+    ViewBag.Title = "PDFRandom";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+
+<html lang="es"
+      class="light-style layout-menu-fixed"
+      dir="ltr"
+      data-theme="theme-default"
+      data-assets-path="../assets/"
+      data-template="vertical-menu-template-free">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title> Aleatoriedad | Analytics</title>
+
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="Vistas/multimedia/teleperformance-group.svg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+
+    <!-- Icons. Uncomment required icon fonts -->
+    <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="../assets/css/demo.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <link rel="stylesheet" href="../assets/vendor/libs/apex-charts/apex-charts.css" />
+
+    <link rel="stylesheet" href="Vistas/css/header.css">
+    <link rel="stylesheet" href="Vistas/css/14.css">
+    <link rel="stylesheet" href="Vistas/css/styles.css">
+
+    <!-- Page CSS -->
+    <!-- Helpers -->
+    <script src="../assets/vendor/js/helpers.js"></script>
+
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="../assets/js/config.js"></script>
+
+
+</head>
+
+<body>
+
+
+    <div class="row_3">
+        <div class="card mb-4">
+            <h5 class="card-header">Histórico de actividad generada</h5>
+
+            <hr class="my-0" />
+
+            <div class="colum_2">
+
+                <div id="jspdfPlantilla" class="card">
+                    <div class="alert alert-secondary" role="alert" _msthash="2889679" _msttexthash="1422278">
+                        <div class="colum_a">
+                            <h6>Evaluador:</h6> <p id="jsCampo1"></p>
+                            <h6>Correo del evaluador:</h6> <p id="jsCampo4"></p>
+                            <h6>Cargo del evaluador:</h6> <p id="jsCampo5"></p>
+                            <h6>Programa:</h6> <p id="jsCampo2"></p>
+                            <h6>Referencia:</h6> <p id="jsCampo1"></p>
+                            <h6>Tipo:</h6> <p id="jsCampo2"></p>
+                            <h6>Fecha generada:</h6> <p id="jsCampo6"></p>
+                            <h6>Cliente:</h6> <p id="jsCampo7"></p>
+                            <h6>Lob:</h6> <p id="jsCampo8"></p>
+                        </div>
+
+
+                    </div>
+
+                    <div class="table-responsive text-nowrap">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th _msthash="3649139" _msttexthash="117546">N°</th>
+                                    <th _msthash="3649269" _msttexthash="93639">Nombre</th>
+                                    <th _msthash="3649269" _msttexthash="93639">Programa</th>
+                                    <th _msthash="3649659" _msttexthash="112476">Hora a evaluar</th>
+                                    <th _msthash="3649659" _msttexthash="112476">Fecha evaluada</th>
+                                    <th _msthash="3649659" _msttexthash="112476">Hora evaluada</th>
+                                    <th _msthash="3649659" _msttexthash="112476">AHT</th>
+                                    <th _msthash="3649659" _msttexthash="112476">ID de Transacción evaluada</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td> 1</td>
+                                    <td> ID o registro</td>
+                                    <td> Smiles voz</td>
+                                    <td> 7:30</td>
+                                    <td> 12-10-2022</td>
+                                    <td> 9:30</td>
+                                    <td> 00:09:00</td>
+                                    <td> 121876</td>
+
+                                </tr>
+
+
+                            </tbody>
+                            <tfoot class="table-border-bottom-0">
+                                <tr>
+                                    <th _msthash="3649139" _msttexthash="117546">N°</th>
+                                    <th _msthash="3649269" _msttexthash="93639">Nombre</th>
+                                    <th _msthash="3649269" _msttexthash="93639">Programa</th>
+                                    <th _msthash="3649659" _msttexthash="112476">Hora a evaluar</th>
+                                    <th _msthash="3649659" _msttexthash="112476">Fecha evaluada</th>
+                                    <th _msthash="3649659" _msttexthash="112476">Hora evaluada</th>
+                                    <th _msthash="3649659" _msttexthash="112476">AHT</th>
+                                    <th _msthash="3649659" _msttexthash="112476">ID de Transacción evaluada</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- /Account -->
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="content-footer footer bg-footer-theme">
+        <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+            La información aquí contenida será enviada por correo electrónico mediante MAQUINA. Si no recibe esta información pude descargar el documento y guardarlo como evidencia. En caso de que se presente errores puede comunicarse al sistemas para generar la atención oportuna.
+        </div>
+    </footer>
+    <!-- / Footer -->
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../assets/vendor/js/bootstrap.js"></script>
+    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+    <script src="../assets/vendor/js/menu.js"></script>
+    <!-- endbuild -->
+    <!-- Vendors JS -->
+    <script src="../assets/vendor/libs/apex-charts/apexcharts.js"></script>
+
+    <!-- Main JS -->
+    <script src="../assets/js/main.js"></script>
+
+    <!-- Page JS -->
+    <script src="../assets/js/dashboards-analytics.js"></script>
+
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    <script src="Vistas/js/13.js"></script>
+</body>
+</html>
+

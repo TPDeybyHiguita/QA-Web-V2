@@ -1,0 +1,789 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7B9BBADA-2005-43BD-91BB-94AFE99B0ABE}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Speech_analytics</RootNamespace>
+    <AssemblyName>Speech_analytics</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Rotativa, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rotativa.1.7.3\lib\net461\Rotativa.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.7.0.0\lib\net462\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.FileSystem.AccessControl, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.AccessControl.5.0.0\lib\net461\System.IO.FileSystem.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Metadata, Version=7.0.0.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reflection.Metadata.7.0.1\lib\net462\System.Reflection.Metadata.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.AccessControl, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.AccessControl.6.0.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Permissions, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Permissions.7.0.0\lib\net462\System.Security.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Business\BusinessAddAnyst.cs" />
+    <Compile Include="Business\BusinessAddLobAnalys.cs" />
+    <Compile Include="Business\BusinessAddNewUser.cs" />
+    <Compile Include="Business\BusinessLoadPromedioActividadByClienteLobMesAño.cs" />
+    <Compile Include="Business\BusinessSenttingManager.cs" />
+    <Compile Include="Clases\AdminConfigureRandomClass.cs" />
+    <Compile Include="Clases\AdminManager.cs" />
+    <Compile Include="Clases\AdminNewUser.cs" />
+    <Compile Include="Clases\AppConfigureRandom.cs" />
+    <Compile Include="Clases\AppResultsRandom.cs" />
+    <Compile Include="Clases\bitacoraSuraEmail.cs" />
+    <Compile Include="Clases\Customers.cs" />
+    <Compile Include="Clases\EmailClass.cs" />
+    <Compile Include="Clases\loadDataUser.cs" />
+    <Compile Include="Clases\LoginClass.cs" />
+    <Compile Include="Clases\myActividadLlamadas.cs" />
+    <Compile Include="Clases\PDFClass.cs" />
+    <Compile Include="Clases\sendEmailNewUser.cs" />
+    <Compile Include="Clases\userPermissions.cs" />
+    <Compile Include="Controllers\AdminResultsRandomController.cs" />
+    <Compile Include="Controllers\bitacoraSuraController.cs" />
+    <Compile Include="Controllers\configureRandomController.cs" />
+    <Compile Include="Controllers\CustomersController.cs" />
+    <Compile Include="Controllers\ManagerController.cs" />
+    <Compile Include="Controllers\newManagerBitacoraController.cs" />
+    <Compile Include="Controllers\newUserController.cs" />
+    <Compile Include="Controllers\PermissionsController.cs" />
+    <Compile Include="Controllers\RandomController.cs" />
+    <Compile Include="Data\LoadCcmsInDataUserByUserRed.cs" />
+    <Compile Include="Data\LoadDataInManagerPermisosByCcmsManagerAndCcmsAnalista.cs" />
+    <Compile Include="Data\LoadDataInSkillClient.cs" />
+    <Compile Include="Data\LoadDataManagerAnalistasByUserRedManagerAndEstado.cs" />
+    <Compile Include="Data\LoadDataManagerSetting.cs" />
+    <Compile Include="Data\LoadDataUserByUserRedInUserData.cs" />
+    <Compile Include="Data\LoadUserDataByUserRedInHC.cs" />
+    <Compile Include="Data\LoadUserRedByCcmsInUserData.cs" />
+    <Compile Include="Data\SaveSenttingManagerInManagerCondiguration.cs" />
+    <Compile Include="Data\UpdateSenttingManagerInManagerConfiguration.cs" />
+    <Compile Include="Data\VerifyDataInManagerPermisos.cs" />
+    <Compile Include="Data\LoadDataUserByCcmsInUser_Login.cs" />
+    <Compile Include="Data\LoadDataUserByUserRedInDataUser.cs" />
+    <Compile Include="Data\LoadDataUserByUserRedInManagerAnalista.cs" />
+    <Compile Include="Data\loadUserDataByCcms.cs" />
+    <Compile Include="Data\LoadUserPermissionsByUserRed.cs" />
+    <Compile Include="Data\SaveDataInManagerAnalista.cs" />
+    <Compile Include="Data\SaveDataInManagerPermisos.cs" />
+    <Compile Include="Data\SaveDataUserLogin.cs" />
+    <Compile Include="Data\saveDataUserPermissions.cs" />
+    <Compile Include="Data\saveUserData.cs" />
+    <Compile Include="Data\UpdateDataUser.cs" />
+    <Compile Include="Data\UpdateEstadoInManagerAnalista.cs" />
+    <Compile Include="Data\UpdateLastLoginByUser.cs" />
+    <Compile Include="Data\UpdatePermisionssUserByUserRed.cs" />
+    <Compile Include="Data\VerifyExistManagerInManagerAnalista.cs" />
+    <Compile Include="Data\VerifyExistSenttingManagerByMesAñoIdLobInManagerConfiguration.cs" />
+    <Compile Include="Data\verifyUserExistByCcms.cs" />
+    <Compile Include="Data\VerifyUserInActiveDirectoryByUserAndPassword.cs" />
+    <Compile Include="Models\CAMPAÑAS.cs" />
+    <Compile Include="Models\DirectoryActive.cs" />
+    <Compile Include="Models\EVALUAR_AGENTES.cs" />
+    <Compile Include="Models\HomologacionSkil.cs" />
+    <Compile Include="Models\managerBitacoraSura.cs" />
+    <Compile Include="Models\MANAGER_CONFIGURATION.cs" />
+    <Compile Include="Models\PERMISOS_USERcs.cs" />
+    <Compile Include="Clases\ProfileClass.cs" />
+    <Compile Include="Clases\RandomClass.cs" />
+    <Compile Include="Clases\Segurity\ProjectName.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AppController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Data\Connection.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FILTER_RANDOM_CALL.cs" />
+    <Compile Include="Models\MANAGER_ANALISTA.cs" />
+    <Compile Include="Models\MANAGER_CONFcs.cs" />
+    <Compile Include="Models\MANAGER_PERMISOS.cs" />
+    <Compile Include="Models\PERMISOS_USERS.cs" />
+    <Compile Include="Models\StateAddNewUsers.cs" />
+    <Compile Include="Models\States\StateAddAnalista.cs" />
+    <Compile Include="Models\States\StateAddLob.cs" />
+    <Compile Include="Models\States\StateBusinessSenttingManager.cs" />
+    <Compile Include="Models\States\StateSaveAnalys.cs" />
+    <Compile Include="Models\TBL_Bitacora_Actualizaciones_arlcs.cs" />
+    <Compile Include="Models\USERDATA.cs" />
+    <Compile Include="Models\EMAILINF.cs" />
+    <Compile Include="Models\loadActGenerada.cs" />
+    <Compile Include="Models\PDFALEATORIO.cs" />
+    <Compile Include="Models\PDF_AL.cs" />
+    <Compile Include="Models\LoginModels.cs" />
+    <Compile Include="Models\PDF_AL_SURV.cs" />
+    <Compile Include="Models\PDF_AL_USER.cs" />
+    <Compile Include="Models\PDF_INF_GENERADA.cs" />
+    <Compile Include="Models\SessionModel.cs" />
+    <Compile Include="Models\TBL_Campañas_TPModel.cs" />
+    <Compile Include="Models\TBL_ECH.cs" />
+    <Compile Include="Models\TBL_FactEmpleados.cs" />
+    <Compile Include="Models\TBL_Info_Clientes.cs" />
+    <Compile Include="Models\TBL_IVR_Resolutivo.cs" />
+    <Compile Include="Models\USER_LOGIN.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bootstrap-select-1.13.14\dist\css\bootstrap-select.css" />
+    <Content Include="bootstrap-select-1.13.14\dist\css\bootstrap-select.min.css" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\bootstrap-select.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\bootstrap-select.min.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-am_ET.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-am_ET.min.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-ar_AR.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-ar_AR.min.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-bg_BG.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-bg_BG.min.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-cs_CZ.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-cs_CZ.min.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-da_DK.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-da_DK.min.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-de_DE.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-de_DE.min.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-en_US.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-en_US.min.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-es_CL.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-es_CL.min.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-es_ES.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-es_ES.min.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-et_EE.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-et_EE.min.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-eu.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-eu.min.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-fa_IR.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-fa_IR.min.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-fi_FI.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-fi_FI.min.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-fr_FR.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-fr_FR.min.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-hr_HR.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-hr_HR.min.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-hu_HU.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-hu_HU.min.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-id_ID.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-id_ID.min.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-it_IT.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-it_IT.min.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-ja_JP.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-ja_JP.min.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-kh_KM.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-kh_KM.min.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-ko_KR.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-ko_KR.min.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-lt_LT.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-lt_LT.min.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-lv_LV.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-lv_LV.min.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-nb_NO.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-nb_NO.min.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-nl_NL.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-nl_NL.min.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-pl_PL.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-pl_PL.min.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-pt_BR.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-pt_BR.min.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-pt_PT.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-pt_PT.min.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-ro_RO.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-ro_RO.min.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-ru_RU.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-ru_RU.min.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-sk_SK.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-sk_SK.min.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-sl_SI.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-sl_SI.min.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-sr_SP.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-sr_SP.min.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-sv_SE.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-sv_SE.min.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-th_TH.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-th_TH.min.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-tr_TR.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-tr_TR.min.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-ua_UA.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-ua_UA.min.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-vi_VN.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-vi_VN.min.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-zh_CN.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-zh_CN.min.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-zh_TW.js" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-zh_TW.min.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\custom_theme\ajax\libs\highlight.js\9.15.6\css\github.min.css" />
+    <Content Include="bootstrap-select-1.13.14\docs\custom_theme\ajax\libs\highlight.js\9.15.6\js\highlight.pack.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\custom_theme\css\base.css" />
+    <Content Include="bootstrap-select-1.13.14\docs\custom_theme\js\base.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\custom_theme\main.html" />
+    <Content Include="bootstrap-select-1.13.14\docs\custom_theme\nav.html" />
+    <Content Include="bootstrap-select-1.13.14\docs\custom_theme\toc.html" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\css\custom.css" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\css\bootstrap-select.css" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\css\bootstrap-select.min.css" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\bootstrap-select.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\bootstrap-select.min.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-am_ET.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-am_ET.min.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-ar_AR.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-ar_AR.min.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-bg_BG.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-bg_BG.min.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-cs_CZ.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-cs_CZ.min.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-da_DK.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-da_DK.min.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-de_DE.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-de_DE.min.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-en_US.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-en_US.min.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-es_CL.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-es_CL.min.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-es_ES.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-es_ES.min.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-et_EE.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-et_EE.min.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-eu.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-eu.min.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-fa_IR.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-fa_IR.min.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-fi_FI.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-fi_FI.min.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-fr_FR.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-fr_FR.min.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-hr_HR.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-hr_HR.min.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-hu_HU.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-hu_HU.min.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-id_ID.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-id_ID.min.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-it_IT.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-it_IT.min.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-ja_JP.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-ja_JP.min.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-kh_KM.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-kh_KM.min.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-ko_KR.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-ko_KR.min.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-lt_LT.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-lt_LT.min.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-lv_LV.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-lv_LV.min.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-nb_NO.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-nb_NO.min.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-nl_NL.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-nl_NL.min.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-pl_PL.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-pl_PL.min.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-pt_BR.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-pt_BR.min.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-pt_PT.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-pt_PT.min.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-ro_RO.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-ro_RO.min.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-ru_RU.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-ru_RU.min.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-sk_SK.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-sk_SK.min.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-sl_SI.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-sl_SI.min.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-sr_SP.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-sr_SP.min.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-sv_SE.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-sv_SE.min.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-th_TH.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-th_TH.min.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-tr_TR.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-tr_TR.min.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-ua_UA.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-ua_UA.min.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-vi_VN.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-vi_VN.min.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-zh_CN.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-zh_CN.min.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-zh_TW.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-zh_TW.min.js" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\playground\3\index.html" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\playground\index.html" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\playground\plnkrOpener.js" />
+    <Content Include="bootstrap-select-1.13.14\Gruntfile.js" />
+    <Content Include="bootstrap-select-1.13.14\js\bootstrap-select.js" />
+    <Content Include="bootstrap-select-1.13.14\js\i18n\defaults-am_ET.js" />
+    <Content Include="bootstrap-select-1.13.14\js\i18n\defaults-ar_AR.js" />
+    <Content Include="bootstrap-select-1.13.14\js\i18n\defaults-bg_BG.js" />
+    <Content Include="bootstrap-select-1.13.14\js\i18n\defaults-cs_CZ.js" />
+    <Content Include="bootstrap-select-1.13.14\js\i18n\defaults-da_DK.js" />
+    <Content Include="bootstrap-select-1.13.14\js\i18n\defaults-de_DE.js" />
+    <Content Include="bootstrap-select-1.13.14\js\i18n\defaults-en_US.js" />
+    <Content Include="bootstrap-select-1.13.14\js\i18n\defaults-es_CL.js" />
+    <Content Include="bootstrap-select-1.13.14\js\i18n\defaults-es_ES.js" />
+    <Content Include="bootstrap-select-1.13.14\js\i18n\defaults-et_EE.js" />
+    <Content Include="bootstrap-select-1.13.14\js\i18n\defaults-eu.js" />
+    <Content Include="bootstrap-select-1.13.14\js\i18n\defaults-fa_IR.js" />
+    <Content Include="bootstrap-select-1.13.14\js\i18n\defaults-fi_FI.js" />
+    <Content Include="bootstrap-select-1.13.14\js\i18n\defaults-fr_FR.js" />
+    <Content Include="bootstrap-select-1.13.14\js\i18n\defaults-hr_HR.js" />
+    <Content Include="bootstrap-select-1.13.14\js\i18n\defaults-hu_HU.js" />
+    <Content Include="bootstrap-select-1.13.14\js\i18n\defaults-id_ID.js" />
+    <Content Include="bootstrap-select-1.13.14\js\i18n\defaults-it_IT.js" />
+    <Content Include="bootstrap-select-1.13.14\js\i18n\defaults-ja_JP.js" />
+    <Content Include="bootstrap-select-1.13.14\js\i18n\defaults-kh_KM.js" />
+    <Content Include="bootstrap-select-1.13.14\js\i18n\defaults-ko_KR.js" />
+    <Content Include="bootstrap-select-1.13.14\js\i18n\defaults-lt_LT.js" />
+    <Content Include="bootstrap-select-1.13.14\js\i18n\defaults-lv_LV.js" />
+    <Content Include="bootstrap-select-1.13.14\js\i18n\defaults-nb_NO.js" />
+    <Content Include="bootstrap-select-1.13.14\js\i18n\defaults-nl_NL.js" />
+    <Content Include="bootstrap-select-1.13.14\js\i18n\defaults-pl_PL.js" />
+    <Content Include="bootstrap-select-1.13.14\js\i18n\defaults-pt_BR.js" />
+    <Content Include="bootstrap-select-1.13.14\js\i18n\defaults-pt_PT.js" />
+    <Content Include="bootstrap-select-1.13.14\js\i18n\defaults-ro_RO.js" />
+    <Content Include="bootstrap-select-1.13.14\js\i18n\defaults-ru_RU.js" />
+    <Content Include="bootstrap-select-1.13.14\js\i18n\defaults-sk_SK.js" />
+    <Content Include="bootstrap-select-1.13.14\js\i18n\defaults-sl_SI.js" />
+    <Content Include="bootstrap-select-1.13.14\js\i18n\defaults-sr_SP.js" />
+    <Content Include="bootstrap-select-1.13.14\js\i18n\defaults-sv_SE.js" />
+    <Content Include="bootstrap-select-1.13.14\js\i18n\defaults-th_TH.js" />
+    <Content Include="bootstrap-select-1.13.14\js\i18n\defaults-tr_TR.js" />
+    <Content Include="bootstrap-select-1.13.14\js\i18n\defaults-ua_UA.js" />
+    <Content Include="bootstrap-select-1.13.14\js\i18n\defaults-vi_VN.js" />
+    <Content Include="bootstrap-select-1.13.14\js\i18n\defaults-zh_CN.js" />
+    <Content Include="bootstrap-select-1.13.14\js\i18n\defaults-zh_TW.js" />
+    <Content Include="bootstrap-select-1.13.14\js\umd-intro.js" />
+    <Content Include="bootstrap-select-1.13.14\js\umd-outro.js" />
+    <Content Include="bootstrap-select-1.13.14\tests\bootstrap3.html" />
+    <Content Include="bootstrap-select-1.13.14\tests\bootstrap4.html" />
+    <Content Include="Css\Admin\AdminConfigureRandom.css" />
+    <Content Include="Css\Admin\AdminCustomers.css" />
+    <Content Include="Css\Admin\AdminManager.css" />
+    <Content Include="Css\AppConfiguracionAleatoriedad.css" />
+    <Content Include="Css\AppHeader.css" />
+    <Content Include="Css\AppIndex.css" />
+    <Content Include="Css\AppPLanes.css" />
+    <Content Include="Css\AppRandom.css" />
+    <Content Include="Css\AppRandom2.css" />
+    <Content Include="Css\bitacoraSura\bitacoraSura.css" />
+    <Content Include="Css\core.css" />
+    <Content Include="Css\AdminNewUser.css" />
+    <Content Include="Css\pages\page-account-settings.css" />
+    <Content Include="Css\pages\page-auth.css" />
+    <Content Include="Css\pages\page-icons.css" />
+    <Content Include="Css\pages\page-misc.css" />
+    <Content Include="Css\PDFRAndom.css" />
+    <Content Include="Css\select_1.css" />
+    <Content Include="Css\styles.css" />
+    <Content Include="Css\stylesLogin.css" />
+    <Content Include="Css\theme-default.css" />
+    <Content Include="Css\User\UserProfile.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Js\AdminConfigureRandom.js" />
+    <Content Include="Js\AdminCustomers.js" />
+    <Content Include="Js\AdminDate.js" />
+    <Content Include="Js\AdminManager.js" />
+    <Content Include="Js\AdminNewUser.js" />
+    <Content Include="Js\AdminUserPermissions.js" />
+    <Content Include="Js\AppConfiguracionAleatoriedad.js" />
+    <Content Include="Js\AppIndexJs.js" />
+    <Content Include="Js\AppPlanes.js" />
+    <Content Include="Js\AppRandom.js" />
+    <Content Include="Js\AppREsultsRandom.js" />
+    <Content Include="Js\AppUpdateProfile.js" />
+    <Content Include="Js\bitacoraSura.js" />
+    <Content Include="Js\body.js" />
+    <Content Include="Js\grafica.js" />
+    <Content Include="Js\Header.js" />
+    <Content Include="Js\LoginJS.js" />
+    <Content Include="Js\menuVerticalTotal.js" />
+    <Content Include="Js\PDFAleatoriedad.js" />
+    <Content Include="Js\PDFRandom.js" />
+    <Content Include="Js\select2.min.css" />
+    <Content Include="Js\select2.min.js" />
+    <Content Include="Js\select_1.js" />
+    <Content Include="Multime\EmailRandom\697b023b-64a5-49a0-8059-27b963453fb1.gif" />
+    <Content Include="Multime\EmailRandom\Ejemplo.gif" />
+    <Content Include="Multime\icono-1.png" />
+    <Content Include="Multime\Mesa de trabajo 16 copia 2.png" />
+    <Content Include="Multime\Mesa de trabajo 16 copia 3.png" />
+    <Content Include="Multime\Mesa de trabajo 16 copia.png" />
+    <Content Include="Multime\Mesa de trabajo 16.png" />
+    <Content Include="Multime\Mesa de trabajo 17 copia 2.png" />
+    <Content Include="Multime\Mesa de trabajo 17 copia 3.png" />
+    <Content Include="Multime\Mesa de trabajo 17 copia 4.png" />
+    <Content Include="Multime\Mesa de trabajo 17 copia 5.png" />
+    <Content Include="Multime\Mesa de trabajo 17 copia 6.png" />
+    <Content Include="Multime\Mesa de trabajo 17 copia 7.png" />
+    <Content Include="Multime\Mesa de trabajo 17 copia 8.png" />
+    <Content Include="Multime\Mesa de trabajo 17 copia 9.png" />
+    <Content Include="Multime\Mesa de trabajo 17 copia.png" />
+    <Content Include="Multime\Mesa de trabajo 17.png" />
+    <Content Include="Multime\Mesa de trabajo 18 copia 2.png" />
+    <Content Include="Multime\Mesa de trabajo 18 copia 3.png" />
+    <Content Include="Multime\Mesa de trabajo 18 copia.png" />
+    <Content Include="Multime\Mesa de trabajo 18.png" />
+    <Content Include="Multime\photo.svg" />
+    <Content Include="Multime\teleperformance-group.svg" />
+    <Content Include="Multime\User\USER-PERFIL-1011396579.png" />
+    <Content Include="Multime\User\USER-PERFIL-error.png" />
+    <Content Include="Multime\Work.png" />
+    <Content Include="Rotativa\help-wkhtmltoimage.txt" />
+    <Content Include="Rotativa\help-wkhtmltopdf.txt" />
+    <Content Include="Rotativa\wkhtmltoimage.exe" />
+    <Content Include="Rotativa\wkhtmltopdf.exe" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="App_Browsers\qt.browser" />
+    <Content Include="bootstrap-select-1.13.14\.eslintignore" />
+    <Content Include="bootstrap-select-1.13.14\.github\FUNDING.yml" />
+    <Content Include="bootstrap-select-1.13.14\.github\ISSUE_TEMPLATE.md" />
+    <Content Include="bootstrap-select-1.13.14\.github\move.yml" />
+    <Content Include="bootstrap-select-1.13.14\.gitignore" />
+    <Content Include="bootstrap-select-1.13.14\bower.json" />
+    <Content Include="bootstrap-select-1.13.14\CHANGELOG.md" />
+    <Content Include="bootstrap-select-1.13.14\composer.json" />
+    <Content Include="bootstrap-select-1.13.14\CONTRIBUTING.md" />
+    <Content Include="bootstrap-select-1.13.14\dist\css\bootstrap-select.css.map" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\bootstrap-select.js.map" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\bootstrap-select.min.js.map" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-am_ET.js.map" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-ar_AR.js.map" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-bg_BG.js.map" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-cs_CZ.js.map" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-da_DK.js.map" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-de_DE.js.map" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-en_US.js.map" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-es_CL.js.map" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-es_ES.js.map" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-et_EE.js.map" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-eu.js.map" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-fa_IR.js.map" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-fi_FI.js.map" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-fr_FR.js.map" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-hr_HR.js.map" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-hu_HU.js.map" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-id_ID.js.map" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-it_IT.js.map" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-ja_JP.js.map" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-kh_KM.js.map" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-ko_KR.js.map" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-lt_LT.js.map" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-lv_LV.js.map" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-nb_NO.js.map" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-nl_NL.js.map" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-pl_PL.js.map" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-pt_BR.js.map" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-pt_PT.js.map" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-ro_RO.js.map" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-ru_RU.js.map" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-sk_SK.js.map" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-sl_SI.js.map" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-sr_SP.js.map" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-sv_SE.js.map" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-th_TH.js.map" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-tr_TR.js.map" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-ua_UA.js.map" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-vi_VN.js.map" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-zh_CN.js.map" />
+    <Content Include="bootstrap-select-1.13.14\dist\js\i18n\defaults-zh_TW.js.map" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\css\bootstrap-select.css.map" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\bootstrap-select.js.map" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\bootstrap-select.min.js.map" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-am_ET.js.map" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-ar_AR.js.map" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-bg_BG.js.map" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-cs_CZ.js.map" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-da_DK.js.map" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-de_DE.js.map" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-en_US.js.map" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-es_CL.js.map" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-es_ES.js.map" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-et_EE.js.map" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-eu.js.map" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-fa_IR.js.map" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-fi_FI.js.map" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-fr_FR.js.map" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-hr_HR.js.map" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-hu_HU.js.map" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-id_ID.js.map" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-it_IT.js.map" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-ja_JP.js.map" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-kh_KM.js.map" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-ko_KR.js.map" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-lt_LT.js.map" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-lv_LV.js.map" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-nb_NO.js.map" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-nl_NL.js.map" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-pl_PL.js.map" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-pt_BR.js.map" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-pt_PT.js.map" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-ro_RO.js.map" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-ru_RU.js.map" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-sk_SK.js.map" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-sl_SI.js.map" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-sr_SP.js.map" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-sv_SE.js.map" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-th_TH.js.map" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-tr_TR.js.map" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-ua_UA.js.map" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-vi_VN.js.map" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-zh_CN.js.map" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\dist\js\i18n\defaults-zh_TW.js.map" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\examples.md" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\index.md" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\methods.md" />
+    <Content Include="bootstrap-select-1.13.14\docs\docs\options.md" />
+    <Content Include="bootstrap-select-1.13.14\docs\mkdocs.yml" />
+    <Content Include="bootstrap-select-1.13.14\js\.eslintrc.json" />
+    <Content Include="bootstrap-select-1.13.14\less\bootstrap-select.less" />
+    <Content Include="bootstrap-select-1.13.14\less\variables.less" />
+    <Content Include="bootstrap-select-1.13.14\LICENSE" />
+    <Content Include="bootstrap-select-1.13.14\nuget\bootstrap-select.nuspec" />
+    <Content Include="bootstrap-select-1.13.14\nuget\MyGet.ps1" />
+    <Content Include="bootstrap-select-1.13.14\package-lock.json" />
+    <Content Include="bootstrap-select-1.13.14\package.json" />
+    <Content Include="bootstrap-select-1.13.14\README.md" />
+    <Content Include="bootstrap-select-1.13.14\sass\bootstrap-select.scss" />
+    <Content Include="bootstrap-select-1.13.14\sass\variables.scss" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\App\Index.cshtml" />
+    <Content Include="Views\App\Random.cshtml" />
+    <Content Include="Views\User\UpdateProfile.cshtml" />
+    <Content Include="Views\Admin\NewUser.cshtml" />
+    <Content Include="Views\Admin\UserPermissions.cshtml" />
+    <Content Include="Views\Admin\ResultsRandom.cshtml" />
+    <Content Include="Views\Account\RecoverPassword.cshtml" />
+    <Content Include="Views\App\PFDRandom.cshtml" />
+    <Content Include="Views\App\CalculadoraPlanes.cshtml" />
+    <Content Include="Views\App\PDF.cshtml" />
+    <Content Include="Views\App\PDFAleatoriedad.cshtml" />
+    <Content Include="Views\App\PDFSURV.cshtml" />
+    <Content Include="Views\Admin\ConfigureRandomness.cshtml" />
+    <Content Include="Views\Admin\Manager.cshtml" />
+    <Content Include="Views\App\configurarAleatoriedad.cshtml" />
+    <Content Include="Views\Admin\Customers.cshtml" />
+    <Content Include="Views\bitacoraSura\index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Multime\DocumentAleatorio\" />
+    <Folder Include="Views\AdminResultsRandom\" />
+    <Folder Include="Views\configureRandom\" />
+    <Folder Include="Views\Customers\" />
+    <Folder Include="Views\Manager\" />
+    <Folder Include="Views\NewFolder1\" />
+    <Folder Include="Views\newManagerBitacora\" />
+    <Folder Include="Views\newUser\" />
+    <Folder Include="Views\Permissions\" />
+    <Folder Include="Views\Random\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>62794</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:62794/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

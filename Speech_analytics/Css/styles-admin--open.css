@@ -1,0 +1,214 @@
+@import url('styles.css');
+
+
+
+
+body::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+}
+
+#open__h1 {
+  width: 100%;
+  position: absolute;
+  z-index: 3;
+  height: 100%;
+  overflow-y: scroll;
+
+}
+
+#open__h1::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+#open__h1::-webkit-scrollbar:vertical {
+  width:5px;
+}
+
+#open__h1::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+  display: none;
+} 
+
+#open__h1::-webkit-scrollbar:horizontal {
+  height: 5px;
+}
+
+#open__h1::-webkit-scrollbar-thumb {
+  background-color: #f2f2f2;
+  border-radius: 20px;
+  border: 1px solid #f2f2f2;
+}
+
+#open__h1::-webkit-scrollbar-track {
+  border-radius: 10px;  
+}
+
+
+#open__nav{
+  --transition-time: 500ms;
+  position: relative;
+  align-items: center;
+  background-color: var(--fondo-color);
+  backdrop-filter: blur(20px);
+  transform: translateX(-100%);
+  transition: all 800ms cubic-bezier(0.8, 0, 0.33, 1);
+  z-index: 4;
+  color: var(--blanco-color);
+  height: 100%;
+  width: 18%;
+  left: 0;
+  top: 0;
+  border-right: solid 1px;
+  box-shadow: 0px 0px 5px 1px var(--bs-secondary);
+  padding: 0px 2px 0px 0px;
+  
+  
+}
+
+#open__nav .nav-links {
+  --link-height: 60px;
+  position: relative;
+  width: 100%;
+}
+
+#open__nav .nav-links .hover-el {
+  position: absolute;
+  width: 100%;
+  height: var(--link-height);
+  top: var(--y);
+  left: var(--x);
+  opacity: 0;
+  background: radial-gradient(circle at var(--mousex) var(--mousey), rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.45) 100%);
+  transition: all 200ms cubic-bezier(0.215, 0.61, 0.355, 1);
+  pointer-events: none;
+  z-index: 5;
+}
+#open__nav .sub-menu {
+  --link-height: 60px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+}
+
+
+
+#open__nav .sub-menu .off-menu {
+  opacity: 0;
+  transform: translateY(30%);
+}
+#open__nav .sub-menu .on-menu {
+  opacity: 1;
+  transform: translateY(0%);
+}
+#open__nav .sub-menu  {
+  font-size: 14px;
+  font-weight: normal;
+}
+#open__nav .sub-menu-btn {
+  --icon-width: 40px;
+  position: absolute;
+  top: 6%;
+  left: 10%;
+  width: var(--icon-width);
+  height: var(--icon-width);
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: all var(--transition-time) cubic-bezier(0.8, 0, 0.33, 1.25);
+  cursor: pointer;
+  z-index: 8;
+  pointer-events: none;
+}
+#open__nav .sub-menu-btn .line {
+  width: calc(var(--icon-width) - 28px);
+  height: 2px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  margin: 12px 10px;
+}
+#open__nav .sub-menu-btn .line__1 {
+  transform-origin: left;
+  transform: rotate(-35deg) translate(-1px, 8px);
+}
+#open__nav .sub-menu-btn .line__2 {
+  transform-origin: left;
+  transform: rotate(35deg) translate(-1px, -8px);
+}
+#open__nav .menu-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  --icon-width: 25px;
+  position: absolute;
+  top: 5%;
+  right: -30%;
+  width: calc(var(--icon-width) + 25px);
+  height: calc(var(--icon-width) + 25px);
+  flex-direction: column;
+  transition: all calc(100ms + var(--transition-time)) cubic-bezier(0.8, 0, 0.33, 1.25);
+  cursor: pointer;
+  z-index: 10;
+}
+#open__nav .menu-btn.close .line__1 {
+  transform: rotate(45deg) translate(2px, -3px);
+}
+#open__nav .menu-btn.close .line__2 {
+  transform: rotate(-45deg);
+}
+#open__nav .menu-btn.close .line__3 {
+  transform: rotate(45deg) translate(-2px, 3px);
+}
+#open__nav .menu-btn .line {
+  width: var(--icon-width);
+  background: linear-gradient(90deg,#7A2180 16.67%,#E40276 95.31%);
+  border-radius: 50px;
+  height: 3px;
+  margin: 3px 0;
+  transition: all calc(var(--transition-time) + 100ms) cubic-bezier(0.9, 0, 0.33, 1);
+}
+#open__nav .menu-btn .line__1 {
+  width: var(--icon-width);
+  transform-origin: left;
+}
+#open__nav .menu-btn .line__2 {
+  width: var(--icon-width);
+  transform-origin: center;
+}
+#open__nav .menu-btn .line__3 {
+  width: var(--icon-width);
+  transform-origin: right;
+}
+#open__nav.nav-open {
+  transform: translateX(0%);
+}
+#open__nav.nav-open .menu-btn {
+  right: -20%;
+}
+#open__nav.nav-open .nav-links {
+  transform: translateX(0);
+  opacity: 1;
+}
+#open__nav.sub-menu-open .sub-menu-btn {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: all;
+}
+#open__nav.sub-menu-open .nav-links {
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-10%);
+}
+#open__nav.sub-menu-open .nav-links .hover-el {
+  opacity: 0;
+}
+
+/*# sourceMappingURL=styles-menu_admin.css.map */

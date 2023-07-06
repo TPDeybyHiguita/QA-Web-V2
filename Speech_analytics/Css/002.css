@@ -1,0 +1,51 @@
+
+
+@import url(styles.css);
+
+
+.bodybody{
+
+    margin-top: 8%;
+    margin-left: 20%;
+    
+
+}
+
+#open__h1{
+    background-color: #f2f2f2;
+}
+
+.row_1{
+    display: flex;
+    flex-direction: row;
+    max-width: 70%;
+    justify-content: left;
+}
+
+.tex_01{
+    font-size: 18px;
+    color: var(--lt-color-gray-700);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.tex_02{
+    font-size: 18px;
+    color: var(--lt-color-gray-500);
+    text-decoration: none;
+    font-weight: lighter;
+    font-style: oblique; 
+}
+
+
+.row_2{
+    display: flex;
+    flex-direction: row;
+    max-width: 100%;
+    margin-top: 30px;
+    justify-content: center;
+}
+
+.p_1{
+    margin: 15px 0px;
+}

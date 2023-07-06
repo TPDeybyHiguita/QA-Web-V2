@@ -1,0 +1,450 @@
+﻿@{
+    ViewBag.Title = "ResultsRandom";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+
+<html lang="es"
+      class="light-style layout-menu-fixed"
+      dir="ltr"
+      data-theme="theme-default"
+      data-assets-path="../assets/"
+      data-template="vertical-menu-template-free">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title> User | Analytics</title>
+
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="Vistas/multimedia/teleperformance-group.svg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+
+    <!-- Icons. Uncomment required icon fonts -->
+    <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
+    <script src="https://kit.fontawesome.com/3f75b3031c.js" crossorigin="anonymous"></script>
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="../assets/css/demo.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <link rel="stylesheet" href="../assets/vendor/libs/apex-charts/apex-charts.css" />
+
+    <link href="~/Css/AppHeader.css" rel="stylesheet" />
+    <link href="~/Css/AdminNewUser.css" rel="stylesheet" />
+    <link href="~/Css/styles.css" rel="stylesheet" />
+
+    <!-- Page CSS -->
+    <!-- Helpers -->
+    <script src="../assets/vendor/js/helpers.js"></script>
+
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="../assets/js/config.js"></script>
+
+
+</head>
+
+<body>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+        <div class="layout-container">
+            <!-- Menu -->
+
+            <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme menu_1">
+
+                <div class="message">
+                    <p class="message_1">Bienvenido</p>
+                </div>
+
+
+
+                <ul class="menu-inner py-1" id="jsVerificarpermisosMenu">
+                    <!-- Dashboard -->
+                </ul>
+
+
+            </aside>
+
+
+            <!-- / Menu -->
+            <!-- Layout container -->
+            <div class="layout-page">
+                <!-- Navbar -->
+
+                <header class="p-3 mb-3 border-bottom header_div">
+                    <div class="container">
+                        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                            <a href="#" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+                                <img class="identidad_logo" src="~/Multime/Mesa de trabajo 17 copia 5.png" alt="">
+                            </a>
+
+                            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                                <li><a href="#" class="nav-link link-menu">TP home</a></li>
+                                <li><a href="#" class="nav-link link-menu">TP ...</a></li>
+                                <li><a href="#" class="nav-link link-menu">TP ...</a></li>
+                            </ul>
+
+                            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                                <li>
+                                    <a href="#" class="nav-link px-2 link-secondary">
+                                        <i class="fa-solid fa-envelope icono_5"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="nav-link px-2 link-secondary">
+                                        <i class="fa-solid fa-comment icono_6"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="nav-link px-2 link-secondary">
+                                        <i class="fa-solid fa-file icono_5"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="nav-link px-2 link-secondary">
+                                        <i class="fa-solid fa-circle-exclamation icono_6"></i>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="nav-link px-2 link-secondary">
+                                        <div class="date" id="date">
+
+                                        </div>
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                            <div class="dateDay" id="jsDateDay"></div>
+
+
+                            <div class="dropdown user_name nameUser">
+                                <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle nameUserText" data-bs-toggle="dropdown" aria-expanded="false" id="nameUserInicial">
+
+                                </a>
+
+                                <ul class="dropdown-menu text-small colum_b nameUserColum">
+                                    <li><a class="dropdown-item" href="~/User/UpdateProfile">Editar perfil</a></li>
+                                    @*<li><a class="dropdown-item" href="#">Más</a></li>
+                                        <li><a class="dropdown-item" href="#">Más</a></li>*@
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" id="jsLoginOff" onclick="closeSession();">Cerrar session</a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </header>
+
+                <!-- / Navbar -->
+
+                <div class="content-wrapper">
+                    <!-- Content -->
+
+                    <div class="container-xxl flex-grow-1 container-p-y">
+
+                        <main class="bodybody ">
+
+                            <div class="position-fixed bottom-0 end-0 p-3 cssMensa" style="z-index: 11">
+                                <div id="liveToast" class="toast bg-dark fade hide" role="alert" aria-live="assertive" aria-atomic="true">
+                                    <div class="toast-header">
+                                        <i class="fa-solid fa-bell icono_1"></i>
+
+                                        <strong class="me-auto">Notificación</strong>
+                                        <small id="jsFecha"></small>
+                                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                                    </div>
+                                    <div class="toast-body" id="jsMensaje">Loading...</div>
+                                </div>
+                            </div>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="fullscreenModal" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog modal-fullscreen" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="jsReferenciaActividad"></h5>
+                                            <div class="spinner-border spinner-border-sm text-secondary" role="status" id="jsSpinner_10" style="display:none">
+                                                <span class="visually-hidden" _msthash="4035993" _msttexthash="80106">Carga...</span>
+                                            </div>
+
+
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+
+                                            <div class="alert alert-danger alert-dismissible" role="alert" style="display:none">
+                                                <font _mstmutation="1" _msthash="2893631" _msttexthash="2123238" id="contenidoAlert"> </font><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar" _mstaria-label="76414">
+                                                </button>
+                                            </div>
+                                            <div id="jsPlantilla" class="">
+
+                                                <div class="alert alert-secondary" role="alert" _msthash="2889679" _msttexthash="1422278">
+                                                    <div class="colum_a">
+
+                                                        <h6>Evaluador:</h6> <p id="jsEvaluador"></p>
+                                                        <h6>Fecha generada:</h6> <p id="jsFechaGenerada"></p>
+                                                        <h6>Cliente:</h6> <p id="jsCLienteReferencia"></p>
+                                                        <h6>Lob:</h6> <p id="JsLobReferencia"></p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="table-responsive text-nowrap">
+                                                    <table class="table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th _msthash="3649139" _msttexthash="117546">N°</th>
+                                                                <th _msthash="3649269" _msttexthash="93639">Cliente</th>
+                                                                <th _msthash="3649269" _msttexthash="93639">UCID</th>
+                                                                <th _msthash="3649659" _msttexthash="112476">Duración</th>
+                                                                <th _msthash="3649659" _msttexthash="112476">Login Agente inicial</th>
+                                                                <th _msthash="3649659" _msttexthash="112476">Nombre Agente inicial</th>
+                                                                <th _msthash="3649659" _msttexthash="112476">Talk time</th>
+                                                                <th _msthash="3649659" _msttexthash="112476">Hold time</th>
+                                                                <th _msthash="3649659" _msttexthash="112476">Origen colgada</th>
+                                                                <th _msthash="3649659" _msttexthash="112476">Transferida</th>
+                                                                <th _msthash="3649659" _msttexthash="112476">ESTADO</th>
+                                                                <th _msthash="3649659" _msttexthash="112476">OBSERVACIÓN</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="tbodytbaleatorio2">
+                                                        </tbody>
+                                                        <tfoot class="table-border-bottom-0">
+                                                            <tr>
+                                                                <th _msthash="3649139" _msttexthash="117546">N°</th>
+                                                                <th _msthash="3649269" _msttexthash="93639">Cliente</th>
+                                                                <th _msthash="3649269" _msttexthash="93639">UCID</th>
+                                                                <th _msthash="3649659" _msttexthash="112476">Duración</th>
+                                                                <th _msthash="3649659" _msttexthash="112476">Login Agente inicial</th>
+                                                                <th _msthash="3649659" _msttexthash="112476">Nombre Agente inicial</th>
+                                                                <th _msthash="3649659" _msttexthash="112476">Talk time</th>
+                                                                <th _msthash="3649659" _msttexthash="112476">Hold time</th>
+                                                                <th _msthash="3649659" _msttexthash="112476">Origen colgada</th>
+                                                                <th _msthash="3649659" _msttexthash="112476">Transferida</th>
+                                                                <th _msthash="3649659" _msttexthash="112476">ESTADO</th>
+                                                                <th _msthash="3649659" _msttexthash="112476">OBSERVACIÓN</th>
+                                                            </tr>
+                                                        </tfoot>
+                                                    </table>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+
+                            <div class="row_1">
+                                <h4 class="tex_01"><a href="#" class="tex_02">Admin /</a> <a href="#" class="tex_02">Users /</a> results</h4>
+                            </div>
+
+                            <div class="row_2">
+
+                            </div>
+
+                            <div class="row_3">
+                                <div class="card mb-4">
+                                    <h5 class="card-header"> Actividad generada</h5>
+
+                                    <hr class="my-0" />
+
+                                    <div class="card-body">
+                                        <form id="formAccountSettings" method="POST" onsubmit="return false">
+                                            <div class="row">
+                                                <div class="form-1">
+                                                    <div class="mb-3 col-md-6 form-1_1">
+
+                                                        <label class="form-label" for="country">Cliente</label>
+                                                        <select id="jsCliente" class="select2 form-select" onchange="loadSubClientes();">
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="mb-3 col-md-6 form-1_1">
+                                                        <label class="form-label" for="country">Lob</label>
+                                                        <select id="jslab" class="select2 form-select">
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-1">
+                                                    <div class="mb-3 col-md-6_a form-1_1">
+                                                        <label class="form-label" for="country">USUARIOS</label>
+                                                        <select id="jsCCMS" class="select2 form-select" onchange="loadDataUser();">
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="mb-3 col-md-6_a form-1_1">
+                                                        <label class="form-label" for="country">Correo electronico</label>
+                                                        <input id="jsNombre" class="form-control" type="text" value="" readonly="">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-1">
+                                                    <div class="mb-3 col-md-6_a form-1_1">
+                                                        <label class="form-label" for="country">Fecha Inicial</label>
+                                                        <input id="jsFiltroInicial" class="form-control" type="date" value="">
+                                                    </div>
+
+                                                    <div class="mb-3 col-md-6_a form-1_1">
+                                                        <label class="form-label" for="country">Fecha Inicial</label>
+                                                        <input id="jsFechaFinal" class="form-control" type="date" value="">
+                                                    </div>
+                                                </div>
+
+
+
+                                                <div class="mt-2">
+                                                    <button onclick="loadActgenerada();" type="submit" class="buton_1">Generar informe</button>
+                                                </div>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                    <!-- /Account -->
+                                </div>
+                            </div>
+
+                            <div class="row_4">
+
+                                <div>
+                                    <div class="card h-100" id="form-11" style="display:none">
+
+                                        <div class="card-body">
+                                            <h5 class="card-title" _msthash="2801435" _msttexthash="364156">Actividad diaria </h5>
+                                        </div>
+                                        <canvas id="grafica_2" class="canvasGrafica"></canvas>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div class="card h-100" id="form-12" style="display:none">
+
+                                        <div class="card-body">
+                                            <h5 class="card-title" _msthash="2801435" _msttexthash="364156">Actividad mensual</h5>
+                                        </div>
+                                        <canvas id="grafica_3" class="canvasGrafica"></canvas>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                            <div class="row_3">
+                                <div class="card">
+                                    <h5 class="card-header" _msthash="1605539" _msttexthash="955838">Informes de actividades</h5>
+
+                                    <div class="table-responsive text-nowrap">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th _msthash="3649139" _msttexthash="117546">Referencia</th>
+                                                    <th _msthash="3649269" _msttexthash="93639">Fecha - HORA</th>
+                                                    <th _msthash="3649659" _msttexthash="112476">Cliente</th>
+                                                    <th _msthash="3649659" _msttexthash="112476">Lob</th>
+                                                    <th _msthash="3649659" _msttexthash="112476">Documeno</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="jsMostrarTBGenerada">
+                                            </tbody>
+                                            <tfoot class="table-border-bottom-0">
+                                                <tr>
+                                                    <th _msthash="3649139" _msttexthash="117546">Referencia</th>
+                                                    <th _msthash="3649269" _msttexthash="93639">Fecha - HORA</th>
+                                                    <th _msthash="3649659" _msttexthash="112476">Cliente</th>
+                                                    <th _msthash="3649659" _msttexthash="112476">Lob</th>
+                                                    <th _msthash="3649659" _msttexthash="112476">Documeno</th>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </main>
+
+                    </div>
+                </div>
+                <!-- / Content -->
+                <!-- Footer -->
+                <footer class="content-footer footer bg-footer-theme">
+                    <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+                        TP
+                    </div>
+                </footer>
+                <!-- / Footer -->
+
+                <div class="content-backdrop fade"></div>
+            </div>
+            <!-- Content wrapper -->
+        </div>
+        <!-- / Layout page -->
+    </div>
+
+
+    <!-- Overlay -->
+    <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+    <!-- / Layout wrapper -->
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../assets/vendor/js/bootstrap.js"></script>
+    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+    <script src="../assets/vendor/js/menu.js"></script>
+    <!-- endbuild -->
+    <!-- Vendors JS -->
+    <script src="../assets/vendor/libs/apex-charts/apexcharts.js"></script>
+
+    <!-- Main JS -->
+    <script src="../assets/js/main.js"></script>
+
+    <!-- Page JS -->
+    <script src="../assets/js/dashboards-analytics.js"></script>
+
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+
+    <script src="~/Js/menuVerticalTotal.js"></script>
+    <script src="~/Js/AppREsultsRandom.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/Chart.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
